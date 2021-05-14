@@ -10,7 +10,6 @@
     <title>Job board HTML-5 Template </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon"
           href="${pageContext.request.contextPath}/pages/assets/img/favicon.ico">
 
@@ -63,14 +62,6 @@
                                         <li><a href="index.jsp">Home</a></li>
                                         <li><a href="job_listing.jsp">Find a Jobs </a></li>
                                         <li><a href="about.html">About</a></li>
-                                        <li><a href="#">Page</a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Elements</a></li>
-                                                <li><a href="job_details.jsp">job Details</a></li>
-                                            </ul>
-                                        </li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>

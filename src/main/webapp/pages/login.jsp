@@ -7,10 +7,10 @@
     <title>Sign Up Form by Colorlib</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="assets/css/regstyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/regstyle.css">
 </head>
 <body>
 
