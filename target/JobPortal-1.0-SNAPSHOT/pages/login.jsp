@@ -15,9 +15,7 @@
 <body>
 
     <div class="main">
-
         <section class="signup">
-            <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
                     <form action="<%=request.getContextPath()%>/home" method="POST" id="signup-form"

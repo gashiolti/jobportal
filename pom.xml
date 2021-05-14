@@ -74,14 +74,14 @@
                 </executions>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <groupId>com.heroku.sdk</groupId>-->
-<!--                <artifactId>heroku-maven-plugin</artifactId>-->
-<!--&lt;!&ndash;                <configuration>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <appName>searchjob-portal</appName>&ndash;&gt;-->
-<!--&lt;!&ndash;                </configuration>&ndash;&gt;-->
-<!--                <version>3.0.3</version>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+<!--                <configuration>-->
+<!--                    <appName>searchjob-portal</appName>-->
+<!--                </configuration>-->
+                <version>3.0.3</version>
+            </plugin>
 
         </plugins>
     </build>
