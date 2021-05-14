@@ -13,9 +13,15 @@ public class JobPostDAO {
     protected static int postID;
     protected static int jobLocationID;
 
-    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
-    private final String jdbcUsername = "root";
-    private final String jdbcPassword = "";
+    // mysql
+//    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
+//    private final String jdbcUsername = "root";
+//    private final String jdbcPassword = "";
+
+    //heroku
+    private final String jdbcURL = "jdbc:mysql://eu-cdbr-west-01.cleardb.com/heroku_f5173b6f4b0d832";
+    private final String jdbcUsername = "b0263a9f6c5bef";
+    private final String jdbcPassword = "a295675c";
 
     private final static String insertJobLocation = "INSERT INTO job_location (city, country) VALUES (?, ?)";
     private final static String insertPost = "INSERT INTO job_post (job_type_id, job_category, company_id, " +

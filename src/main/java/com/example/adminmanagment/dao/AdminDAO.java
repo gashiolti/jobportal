@@ -15,9 +15,15 @@ import java.util.Objects;
 //this DAO class provides CRUD database operations for the table admin_user in the database
 public class AdminDAO {
 
-    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
-    private final String jdbcUsername = "root";
-    private final String jdbcPassword = "";
+    //mysql
+//    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
+//    private final String jdbcUsername = "root";
+//    private final String jdbcPassword = "";
+
+    //heroku
+    private final String jdbcURL = "jdbc:mysql://eu-cdbr-west-01.cleardb.com/heroku_f5173b6f4b0d832";
+    private final String jdbcUsername = "b0263a9f6c5bef";
+    private final String jdbcPassword = "a295675c";
 
     private static final String insertAdmin = "INSERT INTO admin_user (admin_name, admin_address, admin_email, pass, " +
             "role_id) VALUES (?, ?, ?, ?, ?);";

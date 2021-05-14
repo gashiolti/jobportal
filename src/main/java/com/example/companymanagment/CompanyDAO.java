@@ -6,9 +6,15 @@ import java.util.List;
 
 public class CompanyDAO {
 
-    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
-    private final String username = "root";
-    private final String password = "";
+    //mysql
+//    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
+//    private final String username = "root";
+//    private final String password = "";
+
+    //heroku
+    private final String jdbcURL = "jdbc:mysql://eu-cdbr-west-01.cleardb.com/heroku_f5173b6f4b0d832/";
+    private final String username = "b0263a9f6c5bef";
+    private final String password = "a295675c";
 
     private static final String insertCompany = "INSERT INTO company(company_name, company_address, company_email, " +
             "phone_nr, company_website, description, pass, role_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
