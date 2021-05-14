@@ -58,6 +58,15 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>
             </plugin>
+
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <configuration>
+                    <appName>searchjob-portal</appName>
+                </configuration>
+                <version>3.0.3</version>
+            </plugin>
         </plugins>
     </build>
 </project>
