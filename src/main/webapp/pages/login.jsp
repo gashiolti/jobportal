@@ -7,17 +7,15 @@
     <title>Sign Up Form by Colorlib</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/regstyle.css">
+    <link rel="stylesheet" href="assets/css/regstyle.css">
 </head>
 <body>
 
     <div class="main">
-
         <section class="signup">
-            <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
                     <form action="<%=request.getContextPath()%>/home" method="POST" id="signup-form"

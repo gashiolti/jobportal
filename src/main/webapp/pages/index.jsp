@@ -12,9 +12,9 @@
               href="${pageContext.request.contextPath}/pages/assets/img/favicon.ico">
 
 		<!-- CSS here -->
-            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-            <link rel="stylesheet" href="assets/css/flaticon.css">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/flaticon.css">
             <link rel="stylesheet" href="assets/css/price_rangs.css">
             <link rel="stylesheet" href="assets/css/slicknav.css">
             <link rel="stylesheet" href="assets/css/animate.min.css">
