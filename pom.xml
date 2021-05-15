@@ -58,9 +58,12 @@
 
     <build>
         <finalName>JobPortal</finalName>
+        <defaultGoal>compile</defaultGoal>
+
 <!--        //plugins for heroku maven-->
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.0.0</version>
             </plugin>
@@ -71,11 +74,11 @@
                 <executions>
                     <execution>
                         <phase>package</phase>
-<!--                        <goals><goal>copy</goal></goals>-->
+                        <goals><goal>copy</goal></goals>
                         <configuration>
                             <artifactItems>
-<!--                                <groupId>com.github.jsimone</groupId>-->
-                                <groupId>com.heroku</groupId>
+                                <groupId>com.github.jsimone</groupId>
+<!--                                <groupId>com.heroku</groupId>-->
                                 <artifactId>webapp-runner</artifactId>
                                 <version>9.0.45.0</version>
                                 <destFileName>webapp-runner.jar</destFileName>
