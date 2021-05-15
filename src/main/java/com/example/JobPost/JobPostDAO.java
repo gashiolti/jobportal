@@ -15,13 +15,13 @@ public class JobPostDAO {
 
     // mysql
 //    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
-//    private final String jdbcUsername = "root";
-//    private final String jdbcPassword = "";
+//    private final String username = "root";
+//    private final String password = "";
 
     //heroku
-    private final String jdbcURL = "jdbc:mysql://eu-cdbr-west-01.cleardb.com/heroku_f5173b6f4b0d832";
-    private final String jdbcUsername = "b0263a9f6c5bef";
-    private final String jdbcPassword = "a295675c";
+    private final String jdbcURL = "jdbc:mysql://us-cdbr-east-03.cleardb.com/heroku_7c5078b35daf2f4";
+    private final String username = "bf8a27c6dad1c6";
+    private final String password = "f426501a";
 
     private final static String insertJobLocation = "INSERT INTO job_location (city, country) VALUES (?, ?)";
     private final static String insertPost = "INSERT INTO job_post (job_type_id, job_category, company_id, " +
@@ -105,7 +105,7 @@ public class JobPostDAO {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+            connection = DriverManager.getConnection(jdbcURL, username, password);
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
