@@ -65,22 +65,43 @@
             <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
                     <div class="card-body">
-                        <form method="POST">
+                        <form method="POST" action="<%=request.getContextPath()%>/updateprofile">
                             <div class="row gutters">
+                                <%
+                                    String query = request.getQueryString();
+                                    String url = request.getRequestURL() + query;
+                                    if(url.contains("error")) {
+                                %>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <p class="error-message">${errorMessage}</p>
+                                </div>
+                                <%
+                                    } // close if statement
+                                    if(url.contains("message")) {
+                                %>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <p class="success">${successMessage}</p>
+                                </div>
+                                <%
+                                    } // close if statement
+                                %>
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h5 class="mb-3 text-primary">Personal Details</h5>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="fullName">Company Name</label>
-                                        <input type="text" class="form-control" id="fullName" placeholder="Company Name"
+                                        <input type="hidden" name="id" value="<%=id%>">
+                                        <input type="text" class="form-control" name="name" id="fullName"
+                                               placeholder="Company Name"
                                         value="<%=company.getName()%>">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="eMail">Email</label>
-                                        <input type="email" class="form-control" id="eMail" placeholder="Enter Email"
+                                        <input type="email" class="form-control" name="email" id="eMail"
+                                               placeholder="Enter Email"
                                         value="<%=company.getEmail()%>">
                                     </div>
                                 </div>
@@ -90,11 +111,13 @@
                                         <%
                                             if(company.getPhoneNr() == null) {
                                         %>
-                                        <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                                        <input type="text" class="form-control" name="phonenr" id="phone"
+                                               placeholder="Enter phone number">
                                         <%
                                             } else {
                                         %>
-                                        <input type="text" class="form-control" id="phone" placeholder="Enter phone number"
+                                        <input type="text" class="form-control" name="phonenr" id="phone"
+                                               placeholder="Enter phone number"
                                         value="<%=company.getPhoneNr()%>">
                                         <%
                                             } // close else statement
@@ -104,14 +127,15 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="website">Website URL</label>
-                                        <input type="url" class="form-control" id="website" placeholder="Website url"
+                                        <input type="url" class="form-control" name="website" id="website" placeholder="Website url"
                                         value="<%=company.getWebUrl()%>">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="address">Address</label>
-                                        <input type="text" class="form-control" id="address" placeholder="Address"
+                                        <input type="text" class="form-control" name="address" id="address"
+                                               placeholder="Address"
                                         value="<%=company.getAddress()%>">
                                     </div>
                                 </div>
@@ -148,14 +172,14 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input type="password" class="form-control" id="password"
+                                        <input type="password" class="form-control" name="password" id="password"
                                                placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="confirmPass">Confirm Password</label>
-                                        <input type="password" class="form-control" id="confirmPass"
+                                        <input type="password" class="form-control" name="confirmPass" id="confirmPass"
                                                placeholder="Confirm Password">
                                     </div>
                                 </div>

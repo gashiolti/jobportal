@@ -7,22 +7,23 @@ import java.util.List;
 public class CompanyDAO {
 
     //mysql
-//    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
-//    private final String username = "root";
-//    private final String password = "";
+    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
+    private final String username = "root";
+    private final String password = "";
 
     //heroku
-    private final String jdbcURL = "jdbc:mysql://us-cdbr-east-03.cleardb.com/heroku_7c5078b35daf2f4";
-    private final String username = "bf8a27c6dad1c6";
-    private final String password = "f426501a";
+//    private final String jdbcURL = "jdbc:mysql://us-cdbr-east-03.cleardb.com/heroku_7c5078b35daf2f4";
+//    private final String username = "bf8a27c6dad1c6";
+//    private final String password = "f426501a";
 
     private static final String insertCompany = "INSERT INTO company(company_name, company_address, company_email, " +
             "phone_nr, company_website, description, pass, role_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String selectCompanies = "SELECT * FROM company";
     private static final String selectCompany = "SELECT * FROM company WHERE id = ?";
     private static final String updateCompany = "UPDATE company SET company_name = ?, company_address = ?, " +
-            "company_email = ?, company_website = ?, pass = ? WHERE id = ?";
+            "company_email = ?, phone_nr = ?, company_website = ?, description = ?, pass = ? WHERE id = ?";
     private static final String deleteCompany = "DELETE FROM company WHERE id = ?";
+
 
     public CompanyDAO() {
 
@@ -89,7 +90,7 @@ public class CompanyDAO {
             statement.setString(i++, company.getWebUrl());
             statement.setString(i++, company.getDescription());
             statement.setString(i++, company.getPass());
-            statement.setInt(i++, company.getRole());
+            statement.setInt(i++, company.getId());
 
             rowUpdated = statement.executeUpdate() > 0;
         }
