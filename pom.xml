@@ -67,16 +67,16 @@
                     <execution>
                         <phase>package</phase>
                         <goals><goal>copy</goal></goals>
-                        <configuration>
-                            <artifactItems>
-                                <groupId>com.github.gashiolti</groupId>
-                                <artifactId>webapp-runner</artifactId>
-                                <version>9.0.41.0</version>
-                                <destFileName>webapp-runner.jar</destFileName>
-                            </artifactItems>
-                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <artifactItems>
+                        <groupId>com.github.gashiolti</groupId>
+                        <artifactId>webapp-runner</artifactId>
+                        <version>9.0.41.0</version>
+                        <destFileName>webapp-runner.jar</destFileName>
+                    </artifactItems>
+                </configuration>
             </plugin>
 
             <plugin>
