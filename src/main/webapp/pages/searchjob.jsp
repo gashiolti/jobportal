@@ -62,7 +62,7 @@
                                         <li><a href="index.jsp">Home</a></li>
                                         <li><a href="job_listing.jsp">Find a Jobs </a></li>
                                         <li><a href="about.html">About</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="contact.jsp">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>

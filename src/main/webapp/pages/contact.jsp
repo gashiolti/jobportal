@@ -7,7 +7,7 @@
      <title>Job board HTML-5 Template </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
    <!-- CSS here -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -59,7 +59,7 @@
                                             <li><a href="index.jsp">Home</a></li>
                                             <li><a href="job_listing.jsp">Find a Jobs </a></li>
                                             <li><a href="about.html">About</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="contact.jsp">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>          
