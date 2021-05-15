@@ -12,7 +12,7 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/pages/assets/img/favicon.ico">
 
     <!-- Fontfaces CSS-->
     <link href="${pageContext.request.contextPath}/pages/admin/css/font-face.css" rel="stylesheet" media="all">

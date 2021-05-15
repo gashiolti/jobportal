@@ -8,13 +8,12 @@
          <title>Job board HTML-5 Template </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" type="image/x-icon"
-              href="${pageContext.request.contextPath}/pages/assets/img/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 		<!-- CSS here -->
-            <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/owl.carousel.min.css">
-            <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/flaticon.css">
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="assets/css/flaticon.css">
             <link rel="stylesheet" href="assets/css/price_rangs.css">
             <link rel="stylesheet" href="assets/css/slicknav.css">
             <link rel="stylesheet" href="assets/css/animate.min.css">
@@ -101,7 +100,8 @@
                         <div class="row">
                             <div class="col-xl-8">
                                 <!-- form -->
-                                <form action="${pageContext.request.contextPath}/searchpost" class="search-box">
+                                <form method="GET" action="${pageContext.request.contextPath}/searchpost"
+                                       class="search-box">
                                     <div class="input-form">
                                         <input type="text" name="title" placeholder="Job Tittle or keyword">
                                     </div>
