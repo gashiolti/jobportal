@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="JobPortal-1.0-SNAPSHOT.war">
+    <root id="archive" name="JobPortal.war">
       <element id="artifact" artifact-name="JobPortal:war exploded" />
     </root>
   </artifact>
