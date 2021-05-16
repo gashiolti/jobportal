@@ -25,6 +25,12 @@ public class JobPostDAO {
     private final String username = "bf8a27c6dad1c6";
     private final String password = "f426501a";
 
+
+    //google app engine
+    private static final String CREDENTIALS = "jdbc:mysql://google/jobportal?cloudSqlInstance=spatial-thinker-313915" +
+            ":europe-west6:jobportal&socketFactory=com.google.cloud.sql.myqsl" +
+            ".SocketFactory&useSSL=false&user=jobportal&password=";
+
     private final static String insertJobLocation = "INSERT INTO job_location (city, country) VALUES (?, ?)";
     private final static String insertPost = "INSERT INTO job_post (job_type_id, job_category, company_id, " +
             "job_location_id, date_posted, expires, job_title, job_description, vacancy) VALUES (?, ?, ?, ?, ?, ?, ?," +
@@ -125,7 +131,7 @@ public class JobPostDAO {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(jdbcURL, username, password);
+            connection = DriverManager.getConnection(CREDENTIALS);
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

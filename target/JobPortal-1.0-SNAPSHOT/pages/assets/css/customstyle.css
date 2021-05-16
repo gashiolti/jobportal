@@ -1,0 +1,256 @@
+:root {
+    --h-color: #000000;
+    --clr-secondary: #212121;
+}
+
+
+/* POST JOB FILE ===================================================================== */
+
+.row-custom {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../img/headway-5QgIuuBxKwM-unsplash.jpg");
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: var(--clr-secondary);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+}
+
+.row-custom .contact-title {
+    text-align: center;
+    font-size: 35px;
+    color: var(--h-color);
+    text-transform: uppercase;
+    padding-bottom: 25px;
+}
+
+.row-custom .col-lg-8-custom {
+    margin: auto;
+}
+
+.row-custom .input-white {
+    color: var(--h-color);
+    font-size: 16px;
+}
+
+.row .transparent-btn {
+    background-color: transparent;
+}
+
+.row .transparent-btn:hover {
+    background-color: #DA2461;
+    color: var(--h-color);
+    transition: .5s ease-in-out;
+    border: none;
+}
+
+/* .row #select {
+    border: 2px solid red;
+} */
+
+.row .select .--form-group-form-control-select {
+    width: 100%;
+    /* max-height: 300px; */
+    color: var(--h-color);
+    appearance: none;
+    background-color: transparent;
+}
+
+.row .select .--form-group-form-control-select .option {
+    width: 450px;
+    color: var(--clr-secondary);
+}
+
+.form-group--label-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-group--label-input input {
+    width: 50%;
+}
+
+.form-group--label-input label {
+    width: 200px;
+    color: var(--h-color);
+    font-size: 16px;
+    margin: auto;
+}
+
+.form-group .error-display {
+    color: red;
+    border: 1px solid red;
+    text-align: center;
+    padding: 7px;
+    /* background-color: rgb(236, 149, 133); */
+    font-weight: 600;
+}
+
+
+
+/*FILE jobposted===============================================================*/
+.post-added-wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.post-added-box {
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 50px;
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 0px 0px 13px -2px #000000;
+    box-shadow: 0px 0px 13px -2px #000000;
+}
+
+.site-header {
+    text-align: center;
+    /* padding-top: 10px; */
+}
+
+.site-header h1 {
+    font-size: 90px;
+    color: #010B1D;
+    padding-bottom: 0;
+    padding-top: 5px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.site-header__title {
+    padding-bottom: 0;
+}
+
+.main-content {
+    text-align: center;
+}
+
+.main-content .fa {
+    font-size: 130px;
+    color: #24B663;
+    margin-top: -30px;
+    margin-bottom: 100px;
+}
+
+.main-content p {
+    max-width: 600px;
+    margin: auto;
+    color: #606A7A;
+    font-size: 25px;
+    padding-bottom: 50px;
+    margin-top: -25px;
+}
+
+@media only screen and (max-width: 400px) {
+    .post-added-box {
+        width: 90%;
+    }
+
+    .site-header h1 {
+        font-size: 50px;
+    }
+
+    .main-content .fa {
+        font-size: 90px;
+    }
+
+    .main-content p {
+        max-width: 80%;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 730px) {
+    .post-added-box {
+        width: 90%;
+    }
+
+    .site-header h1 {
+        font-size: 70px;
+    }
+
+    .main-content .fa {
+        font-size: 110px;
+    }
+
+    .main-content p {
+        max-width: 80%;
+        font-size: 21px;
+    }
+}
+
+
+
+/* PROFILE DETAILS ====================================================================================== */
+
+/* body{
+    margin-top: 120px;
+    color: #000000;
+        background: #ffffff;
+    } */
+
+#profile-container {
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+}
+
+.account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+    margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+.account-settings .about {
+    margin: 1rem 0 0 0;
+    font-size: 0.8rem;
+    text-align: center;
+}
+.card {
+    background: #F2F3F7;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+}
+.form-control {
+    border: 1px solid #596280;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: .825rem;
+    background: #fffefe;
+    color: #bcd0f7;
+}
+
+
+
+
+
+/*SEARCH BUTTON IN INDEX FILE=====================================================================*/
+.custom-search-btn {
+    width: 100%;
+    height: 100%;
+}
