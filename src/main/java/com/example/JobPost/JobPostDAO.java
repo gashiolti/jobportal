@@ -1,5 +1,7 @@
 package com.example.JobPost;
 
+import com.example.companymanagment.Company;
+
 import java.io.InputStream;
 import java.sql.*;
 import java.time.LocalDate;
@@ -98,6 +100,24 @@ public class JobPostDAO {
                                                             "  AND jp.id = js.job_post_id\n" +
                                                             "  AND jp.job_title LIKE ?\n" +
                                                             "  AND jl.country = ?";
+    private final static String updatePost = "UPDATE job_post jp, job_location jl, company_image ci, " +
+                                                "job_post_requirements jpr, job_salary js\n" +
+                                                "SET jp.job_title                   = ?,\n" +
+                                                "    jp.job_category                = ?,\n" +
+                                                "    jp.job_type_id                 = ?,\n" +
+                                                "    js.salary                      = ?,\n" +
+                                                "    jl.country                     = ?,\n" +
+                                                "    jl.city                        = ?,\n" +
+                                                "    jp.vacancy                     = ?,\n" +
+                                                "    jp.job_description             = ?,\n" +
+                                                "    jpr.knowledge_skills_abilities = ?,\n" +
+                                                "    jpr.education_experience       = ?,\n" +
+                                                "    jp.expires                     = ?\n" +
+                                                "WHERE ci.post_id = jp.id\n" +
+                                                "  AND js.job_post_id = jp.id\n" +
+                                                "  AND jpr.job_post_id = jp.id\n" +
+                                                "  AND jp.job_location_id = jl.id\n" +
+                                                "  AND jp.id = ?;";
 
 
     private Connection getConn() {
@@ -479,6 +499,32 @@ public class JobPostDAO {
 
         return posts;
     }
+
+    //update post from user
+//    public boolean updatePost(Post post) throws SQLException {
+//        boolean rowUpdated;
+//
+//        if(updatePost == null)
+//            throw new IllegalArgumentException("something is wrong with the query, fix it");
+//
+//        try (Connection connection = getConn();
+//             PreparedStatement statement = connection.prepareStatement(updatePost))
+//        {
+//            int i=1;
+//            statement.setString(i++, post.getName());
+//            statement.setString(i++, post.getAddress());
+//            statement.setString(i++, post.getEmail());
+//            statement.setString(i++, post.getPhoneNr());
+//            statement.setString(i++, post.getWebUrl());
+//            statement.setString(i++, post.getDescription());
+//            statement.setString(i++, post.getPass());
+//            statement.setInt(i++, post.getId());
+//
+//            rowUpdated = statement.executeUpdate() > 0;
+//        }
+//
+//        return rowUpdated;
+//    }
 
 //    public static void main(String[] args) {
 //

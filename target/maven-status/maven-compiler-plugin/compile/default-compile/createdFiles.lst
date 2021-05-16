@@ -4,6 +4,7 @@ com\example\redirect\DispatchServlet.class
 com\example\adminmanagment\dao\AdminDAO.class
 com\example\adminmanagment\model\Admin.class
 com\example\crypto\Crypto.class
+com\example\companymanagment\CompanyUpdate.class
 com\example\JobPortal\HelloApplication.class
 com\example\JobPost\AddPost.class
 com\example\JobPost\CompanyImage.class
