@@ -12,7 +12,7 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="${pageContext.request.contextPath}/dispatch?page=index">
-            <img src="${pageContext.request.contextPath}/pages/admin/images/icon/logo.png" alt="Cool Admin" />
+            <img src="${pageContext.request.contextPath}/admin/images/icon/logo.png" alt="Cool Admin" />
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
@@ -51,7 +51,7 @@
                         <i class="fas fa-table"></i>Tables</a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/pages/admin/form.html">
+                    <a href="${pageContext.request.contextPath}/admin/form.html">
                         <i class="far fa-check-square"></i>Forms</a>
                 </li>
 <%--                <li>--%>

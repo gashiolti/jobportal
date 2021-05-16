@@ -26,7 +26,7 @@
                         <!-- Logo -->
                         <div class="logo">
                             <a href="${pageContext.request.contextPath}/dispatch?page=home"><img
-                                    src="${pageContext.request.contextPath}/pages/assets/img/logo/logo.png"
+                                    src="${pageContext.request.contextPath}/assets/img/logo/logo.png"
                                                     alt=""></a>
                         </div>
                     </div>

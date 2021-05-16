@@ -5,7 +5,7 @@
 
 <body>
     <div class="page-wrapper bg-dark p-t-100 p-b-50" style="background-image:
-    url('${pageContext.request.contextPath}/pages/assets/img/headway-5QgIuuBxKwM-unsplash.jpg');
+    url('${pageContext.request.contextPath}/assets/img/headway-5QgIuuBxKwM-unsplash.jpg');
         background-color: rgb(61, 61, 61);
         background-blend-mode: multiply;
         background-size: cover;

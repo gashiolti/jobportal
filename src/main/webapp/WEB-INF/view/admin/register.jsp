@@ -3,7 +3,7 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <div class="page-content--bge5" style="background-image: url('${pageContext.request.contextPath}/pages/admin/images/headway-5QgIuuBxKwM-unsplash.jpg');
+        <div class="page-content--bge5" style="background-image: url('${pageContext.request.contextPath}/admin/images/headway-5QgIuuBxKwM-unsplash.jpg');
                                         background-color: #212121;
                                         background-blend-mode: multiply;">
             <div class="container">
@@ -11,7 +11,7 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="${pageContext.request.contextPath}/dispatch?page=index">
-                                <img src="${pageContext.request.contextPath}/pages/admin/images/icon/logo.png" alt="CoolAdmin">
+                                <img src="${pageContext.request.contextPath}/admin/images/icon/logo.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
@@ -65,7 +65,7 @@
                             <div class="register-link">
                                 <p>
                                     Already have account?
-                                    <a href="${pageContext.request.contextPath}/pages/login.jsp">Sign In</a>
+                                    <a href="${pageContext.request.contextPath}/login.jsp">Sign In</a>
                                 </p>
                             </div>
                         </div>

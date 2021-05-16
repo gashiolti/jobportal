@@ -9,25 +9,25 @@
 
 
 <!-- Jquery JS-->
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS-->
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/vendor/bootstrap-4.1/bootstrap.min.js"></script>
 <!-- Vendor JS       -->
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/slick/slick.min.js">
+<script src="${pageContext.request.contextPath}/admin/vendor/slick/slick.min.js">
 </script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/wow/wow.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/animsition/animsition.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+<script src="${pageContext.request.contextPath}/admin/vendor/wow/wow.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/vendor/animsition/animsition.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
 </script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/counter-up/jquery.counterup.min.js">
+<script src="${pageContext.request.contextPath}/admin/vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/vendor/counter-up/jquery.counterup.min.js">
 </script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/circle-progress/circle-progress.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/admin/vendor/select2/select2.min.js">
+<script src="${pageContext.request.contextPath}/admin/vendor/circle-progress/circle-progress.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="${pageContext.request.contextPath}/admin/vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/vendor/select2/select2.min.js">
 </script>
 
 <!-- Main JS-->
-<script src="${pageContext.request.contextPath}/pages/admin/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/main.js"></script>

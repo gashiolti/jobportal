@@ -12,34 +12,34 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/pages/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
     <!-- Fontfaces CSS-->
-    <link href="${pageContext.request.contextPath}/pages/admin/css/font-face.css" rel="stylesheet" media="all">
-    <link href="${pageContext.request.contextPath}/pages/admin/vendor/mdi-font/css/material-design-iconic-font.min.css"
+    <link href="${pageContext.request.contextPath}/admin/css/font-face.css" rel="stylesheet" media="all">
+    <link href="${pageContext.request.contextPath}/admin/vendor/mdi-font/css/material-design-iconic-font.min.css"
           rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="${pageContext.request.contextPath}/pages/admin/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="${pageContext.request.contextPath}/admin/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="${pageContext.request.contextPath}/pages/admin/css/theme.css" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/admin/css/custom-style.css">
+    <link href="${pageContext.request.contextPath}/admin/css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/css/custom-style.css">
 
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/flaticon.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/price_rangs.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/slicknav.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/animate.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/slick.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/nice-select.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flaticon.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/price_rangs.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slicknav.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/animate.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slick.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/nice-select.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 
 
 
@@ -53,7 +53,7 @@
                 <div class="preloader-inner position-relative">
                     <div class="preloader-circle"></div>
                     <div class="preloader-img pere-text">
-                        <img src="${pageContext.request.contextPath}/pages/assets/img/logo/logo.png" alt="">
+                        <img src="${pageContext.request.contextPath}/assets/img/logo/logo.png" alt="">
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                                 <!-- Logo -->
                                 <div class="logo">
                                     <a href="${pageContext.request.contextPath}/dispatch?page=home"><img
-                                            src="${pageContext.request.contextPath}/pages/assets/img/logo/logo.png"
+                                            src="${pageContext.request.contextPath}/assets/img/logo/logo.png"
                                             alt=""></a>
                                 </div>
                             </div>
@@ -210,15 +210,15 @@
 
         <jsp:include page="footer.jsp" />
 
-        <script src="${pageContext.request.contextPath}/pages/admin/vendor/jquery-3.2.1.min.js"></script>
+        <script src="${pageContext.request.contextPath}/admin/vendor/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap JS-->
-        <script src="${pageContext.request.contextPath}/pages/admin/vendor/bootstrap-4.1/popper.min.js"></script>
-        <script src="${pageContext.request.contextPath}/pages/admin/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+        <script src="${pageContext.request.contextPath}/admin/vendor/bootstrap-4.1/popper.min.js"></script>
+        <script src="${pageContext.request.contextPath}/admin/vendor/bootstrap-4.1/bootstrap.min.js"></script>
         <!-- Vendor JS       -->
-        <script src="${pageContext.request.contextPath}/pages/admin/vendor/animsition/animsition.min.js"></script>
+        <script src="${pageContext.request.contextPath}/admin/vendor/animsition/animsition.min.js"></script>
 
         <!-- Main JS-->
-        <script src="${pageContext.request.contextPath}/pages/admin/js/main.js"></script>
+        <script src="${pageContext.request.contextPath}/admin/js/main.js"></script>
 
 
         <jsp:include page="footer-js.jsp" />

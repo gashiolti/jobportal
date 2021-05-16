@@ -11,21 +11,21 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/pages/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/price_rangs.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/flaticon.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/slicknav.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/animate.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/slick.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/nice-select.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/price_rangs.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flaticon.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slicknav.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/animate.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slick.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/nice-select.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
         <div class="preloader-inner position-relative">
             <div class="preloader-circle"></div>
             <div class="preloader-img pere-text">
-                <img src="${pageContext.request.contextPath}/pages/assets/img/logo/logo.png" alt="">
+                <img src="${pageContext.request.contextPath}/assets/img/logo/logo.png" alt="">
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
                     <div class="col-lg-3 col-md-2">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.jsp"><img src="${pageContext.request.contextPath}/pages/assets/img/logo/logo.png" alt=""></a>
+                            <a href="index.jsp"><img src="${pageContext.request.contextPath}/assets/img/logo/logo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-9">
@@ -59,9 +59,9 @@
                             <div class="main-menu">
                                 <nav class="d-none d-lg-block">
                                     <ul id="navigation">
-                                        <li><a href="${pageContext.request.contextPath}/pages/index.jsp">Home</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/pages/job_listing.jsp">Find a Jobs </a></li>
-                                        <li><a href="${pageContext.request.contextPath}/pages/about.html">About</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/job_listing.jsp">Find a Jobs </a></li>
+                                        <li><a href="${pageContext.request.contextPath}/about.html">About</a></li>
 <%--                                        <li><a href="#">Page</a>--%>
 <%--                                            <ul class="submenu">--%>
 <%--                                                <li><a href="blog.html">Blog</a></li>--%>
@@ -70,15 +70,15 @@
 <%--                                                <li><a href="job_details.jsp">job Details</a></li>--%>
 <%--                                            </ul>--%>
 <%--                                        </li>--%>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
                             <!-- Header-btn -->
                             <div class="header-btn d-none f-right d-lg-block">
-                                <a href="${pageContext.request.contextPath}/pages/signup.jsp" class="btn head-btn1">Register
+                                <a href="${pageContext.request.contextPath}/signup.jsp" class="btn head-btn1">Register
                                 </a>
-                                <a href="${pageContext.request.contextPath}/pages/login.jsp" class="btn head-btn2">Login</a>
+                                <a href="${pageContext.request.contextPath}/login.jsp" class="btn head-btn2">Login</a>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
     <!-- Hero Area Start-->
     <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center"
-             data-background="${pageContext.request.contextPath}/pages/assets/img/hero/about.jpg">
+             data-background="${pageContext.request.contextPath}/assets/img/hero/about.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
@@ -312,7 +312,7 @@
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
-                                                <img src="${pageContext.request.contextPath}/pages/assets/img/icon/job-list1.png" alt="Logo">
+                                                <img src="${pageContext.request.contextPath}/assets/img/icon/job-list1.png" alt="Logo">
                                             </a>
                                         </div>
                                         <div class="job-tittle job-tittle2">
@@ -344,7 +344,7 @@
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
-                                                <img src="${pageContext.request.contextPath}/pages/assets/img/icon/job-list1.png" alt="Logo">
+                                                <img src="${pageContext.request.contextPath}/assets/img/icon/job-list1.png" alt="Logo">
                                             </a>
                                         </div>
                                         <div class="job-tittle job-tittle2">
@@ -467,7 +467,7 @@
                                         <div class="form-icon">
                                             <button type="submit" name="submit" id="newsletter-submit"
                                                     class="email_icon newsletter-submit button-contactForm">
-                                                <img src="${pageContext.request.contextPath}/pages/assets/img/icon/form.png" alt=""></button>
+                                                <img src="${pageContext.request.contextPath}/assets/img/icon/form.png" alt=""></button>
                                         </div>
                                         <div class="mt-10 info"></div>
                                     </form>
@@ -482,7 +482,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <!-- logo -->
                     <div class="footer-logo mb-20">
-                        <a href="index.jsp"><img src="${pageContext.request.contextPath}/pages/assets/img/logo/logo2_footer.png" alt=""></a>
+                        <a href="index.jsp"><img src="${pageContext.request.contextPath}/assets/img/logo/logo2_footer.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
@@ -537,38 +537,38 @@
 <!-- JS here -->
 
 <!-- All JS Custom Plugins Link Here here -->
-<script src="${pageContext.request.contextPath}/pages/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/vendor/modernizr-3.5.0.min.js"></script>
 <!-- Jquery, Popper, Bootstrap -->
-<script src="${pageContext.request.contextPath}/pages/assets/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/popper.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/bootstrap.min.js"></script>
 <!-- Jquery Mobile Menu -->
-<script src="${pageContext.request.contextPath}/pages/assets/js/jquery.slicknav.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.slicknav.min.js"></script>
 
 <!-- Jquery Slick , Owl-Carousel Range -->
-<script src="${pageContext.request.contextPath}/pages/assets/js/owl.carousel.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/slick.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/price_rangs.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/owl.carousel.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/slick.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/price_rangs.js"></script>
 <!-- One Page, Animated-HeadLin -->
-<script src="${pageContext.request.contextPath}/pages/assets/js/wow.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/animated.headline.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/jquery.magnific-popup.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/wow.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/animated.headline.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.magnific-popup.js"></script>
 
 <!-- Scrollup, nice-select, sticky -->
-<script src="${pageContext.request.contextPath}/pages/assets/js/jquery.scrollUp.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/jquery.nice-select.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/jquery.sticky.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.scrollUp.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.nice-select.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.sticky.js"></script>
 
 <!-- contact js -->
-<script src="${pageContext.request.contextPath}/pages/assets/js/contact.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/jquery.form.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/jquery.validate.min.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/mail-script.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/contact.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.form.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.validate.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/mail-script.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.ajaxchimp.min.js"></script>
 
 <!-- Jquery Plugins, main Jquery -->
-<script src="${pageContext.request.contextPath}/pages/assets/js/plugins.js"></script>
-<script src="${pageContext.request.contextPath}/pages/assets/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/plugins.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 
 </body>
 </html>

@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="header-mobile-inner">
                 <a class="logo" href="${pageContext.request.contextPath}/dispatch?page=index">
-                    <img src="${pageContext.request.contextPath}/pages/admin/images/icon/logo.png"
+                    <img src="${pageContext.request.contextPath}/admin/images/icon/logo.png"
                          alt="CoolAdmin" />
                 </a>
                 <button class="hamburger hamburger--slider" type="button">

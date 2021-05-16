@@ -13,7 +13,7 @@
         <div class="preloader-inner position-relative">
             <div class="preloader-circle"></div>
             <div class="preloader-img pere-text">
-                <img src="${pageContext.request.contextPath}/pages/assets/img/logo/logo.png" alt="">
+                <img src="${pageContext.request.contextPath}/assets/img/logo/logo.png" alt="">
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
     <!-- Hero Area Start-->
     <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center"
-             data-background="${pageContext.request.contextPath}/pages/assets/img/hero/about.jpg">
+             data-background="${pageContext.request.contextPath}/assets/img/hero/about.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
@@ -250,7 +250,7 @@
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
-                                                <img src="${pageContext.request.contextPath}/pages/assets/img/icon/job-list1.png" alt="Logo">
+                                                <img src="${pageContext.request.contextPath}/assets/img/icon/job-list1.png" alt="Logo">
                                             </a>
                                         </div>
                                         <div class="job-tittle job-tittle2">
@@ -282,7 +282,7 @@
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
-                                                <img src="${pageContext.request.contextPath}/pages/assets/img/icon/job-list1.png" alt="Logo">
+                                                <img src="${pageContext.request.contextPath}/assets/img/icon/job-list1.png" alt="Logo">
                                             </a>
                                         </div>
                                         <div class="job-tittle job-tittle2">

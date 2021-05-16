@@ -7,7 +7,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="${pageContext.request.contextPath}/pages/assets/img/logo/logo.png" alt="logo">
+                    <img src="${pageContext.request.contextPath}/assets/img/logo/logo.png" alt="logo">
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="slider-area ">
             <!-- Mobile Menu -->
             <div class="slider-active">
-                <div class="single-slider slider-height d-flex align-items-center" data-background="${pageContext.request.contextPath}/pages/assets/img/hero/h1_hero.jpg">
+                <div class="single-slider slider-height d-flex align-items-center" data-background="${pageContext.request.contextPath}/assets/img/hero/h1_hero.jpg">
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-6 col-lg-9 col-md-10">
@@ -174,7 +174,7 @@
         </div>
         <!-- Our Services End -->
         <!-- Online CV Area Start -->
-         <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="${pageContext.request.contextPath}/pages/assets/img/gallery/cv_bg.jpg">
+         <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="${pageContext.request.contextPath}/assets/img/gallery/cv_bg.jpg">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-10">
@@ -206,7 +206,7 @@
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="jobdetails.jsp"><img src="${pageContext.request.contextPath}/pages/assets/img/icon/job-list1.png" alt=""></a>
+                                    <a href="jobdetails.jsp"><img src="${pageContext.request.contextPath}/assets/img/icon/job-list1.png" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="jobdetails.jsp"><h4>Digital Marketer</h4></a>
@@ -226,7 +226,7 @@
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="jobdetails.jsp"><img src="${pageContext.request.contextPath}/pages/assets/img/icon/job-list2.png" alt=""></a>
+                                    <a href="jobdetails.jsp"><img src="${pageContext.request.contextPath}/assets/img/icon/job-list2.png" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="jobdetails.jsp"><h4>Digital Marketer</h4></a>
@@ -246,7 +246,7 @@
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="jobdetails.jsp"><img src="${pageContext.request.contextPath}/pages/assets/img/icon/job-list3.png" alt=""></a>
+                                    <a href="jobdetails.jsp"><img src="${pageContext.request.contextPath}/assets/img/icon/job-list3.png" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="jobdetails.jsp"><h4>Digital Marketer</h4></a>
@@ -266,7 +266,7 @@
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="jobdetails.jsp"><img src="${pageContext.request.contextPath}/pages/assets/img/icon/job-list4.png" alt=""></a>
+                                    <a href="jobdetails.jsp"><img src="${pageContext.request.contextPath}/assets/img/icon/job-list4.png" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="jobdetails.jsp"><h4>Digital Marketer</h4></a>
@@ -289,7 +289,7 @@
         <!-- Featured_job_end -->
         <!-- How  Apply Process Start-->
         <div class="apply-process-area apply-bg pt-150 pb-150"
-             data-background="${pageContext.request.contextPath}/pages/assets/img/gallery/how-applybg.png">
+             data-background="${pageContext.request.contextPath}/assets/img/gallery/how-applybg.png">
             <div class="container">
                 <!-- Section Tittle -->
                 <div class="row">
@@ -353,7 +353,7 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder  ">
                                         <div class="founder-img mb-30">
-                                            <img src="${pageContext.request.contextPath}/pages/assets/img/testmonial/testimonial-founder.png" alt="">
+                                            <img src="${pageContext.request.contextPath}/assets/img/testmonial/testimonial-founder.png" alt="">
                                             <span>Margaret Lawson</span>
                                             <p>Creative Director</p>
                                         </div>
@@ -370,7 +370,7 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder  ">
                                         <div class="founder-img mb-30">
-                                            <img src="${pageContext.request.contextPath}/pages/assets/img/testmonial/testimonial-founder.png" alt="">
+                                            <img src="${pageContext.request.contextPath}/assets/img/testmonial/testimonial-founder.png" alt="">
                                             <span>Margaret Lawson</span>
                                             <p>Creative Director</p>
                                         </div>
@@ -387,7 +387,7 @@
                                     <!-- founder -->
                                     <div class="testimonial-founder  ">
                                         <div class="founder-img mb-30">
-                                            <img src="${pageContext.request.contextPath}/pages/assets/img/testmonial/testimonial-founder.png" alt="">
+                                            <img src="${pageContext.request.contextPath}/assets/img/testmonial/testimonial-founder.png" alt="">
                                             <span>Margaret Lawson</span>
                                             <p>Creative Director</p>
                                         </div>
@@ -423,7 +423,7 @@
                     </div>
                     <div class="col-xl-6 col-lg-6">
                         <div class="support-location-img">
-                            <img src="${pageContext.request.contextPath}/pages/assets/img/service/support-img.jpg"
+                            <img src="${pageContext.request.contextPath}/assets/img/service/support-img.jpg"
                                  alt="">
                             <div class="support-img-cap text-center">
                                 <p>Since</p>
@@ -452,7 +452,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="${pageContext.request.contextPath}/pages/assets/img/blog/home-blog1.jpg"
+                                    <img src="${pageContext.request.contextPath}/assets/img/blog/home-blog1.jpg"
                                          alt="">
                                     <!-- Blog date -->
                                     <div class="blog-date text-center">
@@ -472,7 +472,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="${pageContext.request.contextPath}/pages/assets/img/blog/home-blog2.jpg" alt="">
+                                    <img src="${pageContext.request.contextPath}/assets/img/blog/home-blog2.jpg" alt="">
                                     <!-- Blog date -->
                                     <div class="blog-date text-center">
                                         <span>24</span>

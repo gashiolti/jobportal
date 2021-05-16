@@ -14,23 +14,23 @@
     <title>Job board HTML-5 Template </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/pages/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/favicon.ico">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/flaticon.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/price_rangs.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/slicknav.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/animate.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/themify-icons.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/slick.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/nice-select.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/customstyle.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/main-jobpost.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/flaticon.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/price_rangs.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slicknav.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/animate.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slick.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/nice-select.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/customstyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main-jobpost.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&display=swap" rel="stylesheet">
