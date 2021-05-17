@@ -1,4 +1,5 @@
 com\example\JobPortal\HelloResource.class
+com\example\JobPost\updatepost.class
 com\example\login_logout\Logout.class
 com\example\redirect\DispatchServlet.class
 com\example\adminmanagment\dao\AdminDAO.class

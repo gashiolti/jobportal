@@ -106,24 +106,29 @@ public class JobPostDAO {
                                                             "  AND jp.id = js.job_post_id\n" +
                                                             "  AND jp.job_title LIKE ?\n" +
                                                             "  AND jl.country = ?";
-    private final static String updatePost = "UPDATE job_post jp, job_location jl, company_image ci, " +
-                                                "job_post_requirements jpr, job_salary js\n" +
-                                                "SET jp.job_title                   = ?,\n" +
-                                                "    jp.job_category                = ?,\n" +
-                                                "    jp.job_type_id                 = ?,\n" +
-                                                "    js.salary                      = ?,\n" +
-                                                "    jl.country                     = ?,\n" +
-                                                "    jl.city                        = ?,\n" +
-                                                "    jp.vacancy                     = ?,\n" +
-                                                "    jp.job_description             = ?,\n" +
-                                                "    jpr.knowledge_skills_abilities = ?,\n" +
-                                                "    jpr.education_experience       = ?,\n" +
-                                                "    jp.expires                     = ?\n" +
-                                                "WHERE ci.post_id = jp.id\n" +
-                                                "  AND js.job_post_id = jp.id\n" +
-                                                "  AND jpr.job_post_id = jp.id\n" +
-                                                "  AND jp.job_location_id = jl.id\n" +
-                                                "  AND jp.id = ?;";
+    private final static String updatePost = "UPDATE job_post jp\n" +
+                                            "SET jp.job_type_id                 = ?,\n" +
+                                            "    jp.job_category                = ?,\n" +
+                                            "    jp.job_location_id             = ?,\n" +
+                                            "    jp.expires                     = ?,\n" +
+                                            "    jp.job_title                   = ?,\n" +
+                                            "    jp.job_description             = ?,\n" +
+                                            "    jp.vacancy                     = ?\n" +
+                                            "WHERE jp.id = ?;";
+    private final static String updateJobLocation = "UPDATE job_location jl, job_post jp" +
+                                                    "SET jl.city = ?, jl.country = ?" +
+                                                    "WHERE jp.job_location_id = jl.id" +
+                                                    "AND jp.id = ?";
+    private final static String updateJobPostRequirements = "UPDATE job_post_requirements\n" +
+                                                    "SET knowledge_skills_abilities = ?,\n" +
+                                                    "    education_experience       = ?\n" +
+                                                    "WHERE job_post_id = ?;";
+    private final static String updateSalary = "UPDATE job_salary\n" +
+                                                "SET salary = ?\n" +
+                                                "WHERE job_post_id = ?;";
+    private final static String updatePostCompanyLogo = "UPDATE company_image\n" +
+                                                        "SET image = ?\n" +
+                                                        "WHERE post_id = ?;";
 
 
     private Connection getConn() {
@@ -507,30 +512,90 @@ public class JobPostDAO {
     }
 
     //update post from user
-//    public boolean updatePost(Post post) throws SQLException {
-//        boolean rowUpdated;
-//
-//        if(updatePost == null)
-//            throw new IllegalArgumentException("something is wrong with the query, fix it");
-//
-//        try (Connection connection = getConn();
-//             PreparedStatement statement = connection.prepareStatement(updatePost))
-//        {
-//            int i=1;
-//            statement.setString(i++, post.getName());
-//            statement.setString(i++, post.getAddress());
-//            statement.setString(i++, post.getEmail());
-//            statement.setString(i++, post.getPhoneNr());
-//            statement.setString(i++, post.getWebUrl());
-//            statement.setString(i++, post.getDescription());
-//            statement.setString(i++, post.getPass());
-//            statement.setInt(i++, post.getId());
-//
-//            rowUpdated = statement.executeUpdate() > 0;
-//        }
-//
-//        return rowUpdated;
-//    }
+    public boolean updatePost(Post post) throws SQLException {
+        boolean rowUpdated;
+
+        if(updatePost == null)
+            throw new IllegalArgumentException("something is wrong with the query, fix it");
+
+        try (Connection connection = getConn();
+             PreparedStatement statement = connection.prepareStatement(updatePost))
+        {
+            int i=1;
+            statement.setInt(i++, post.getJobTypeID());
+            statement.setInt(i++, post.getJobCategory());
+            statement.setInt(i++, post.getJobLocation());
+            statement.setObject(i++, post.getExpires());
+            statement.setString(i++, post.getTitle());
+            statement.setString(i++, post.getDescription());
+            statement.setInt(i++, post.getVacancy());
+            statement.setInt(i++, post.getId());
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+
+        return rowUpdated;
+    }
+
+    //update post from user
+    public boolean updateJobLocation(JobLocation jobLocation, int postid) throws SQLException {
+        boolean rowUpdated;
+
+        if(updatePost == null)
+            throw new IllegalArgumentException("something is wrong with the query, fix it");
+
+        try (Connection connection = getConn();
+             PreparedStatement statement = connection.prepareStatement(updateJobLocation))
+        {
+            int i=1;
+            statement.setString(i++, jobLocation.getCity());
+            statement.setString(i++, jobLocation.getCountry());
+            statement.setInt(i++, postid);
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+
+        return rowUpdated;
+    }
+
+    //update post from user
+    public boolean updatePostDetails(JobDetails jobDetails, int postid) throws SQLException {
+        boolean rowUpdated;
+
+        if(updatePost == null)
+            throw new IllegalArgumentException("something is wrong with the query, fix it");
+
+        try (Connection connection = getConn();
+             PreparedStatement statement = connection.prepareStatement(updateJobPostRequirements))
+        {
+            int i=1;
+            statement.setString(i++, jobDetails.getKnowledgeSkillAbilities());
+            statement.setString(i++, jobDetails.getEducationExperience());
+            statement.setInt(i++, postid);
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
+    //update post from user
+    public boolean updatePostSalary(Salary salary, int postid) throws SQLException {
+        boolean rowUpdated;
+
+        if(updatePost == null)
+            throw new IllegalArgumentException("something is wrong with the query, fix it");
+
+        try (Connection connection = getConn();
+             PreparedStatement statement = connection.prepareStatement(updateSalary))
+        {
+            int i=1;
+            statement.setString(i++, salary.getSalary());
+            statement.setInt(i++, postid);
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
 
 //    public static void main(String[] args) {
 //
