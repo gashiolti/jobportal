@@ -103,7 +103,7 @@
 
         JobDetails jobDetails = dao.getJobDetails(postid);
 
-        CompanyImage image = dao.getCompanyImage(postid);
+//        CompanyImage image = dao.getCompanyImage(postid);
     %>
 
     <main>

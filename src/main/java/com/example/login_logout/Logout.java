@@ -12,7 +12,7 @@ public class Logout extends HttpServlet {
             IOException {
 
         request.getSession().invalidate();
-        response.sendRedirect("pages/index.jsp");
+        response.sendRedirect("index.jsp");
     }
 
     @Override

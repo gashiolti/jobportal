@@ -66,8 +66,8 @@
                                 </div>          
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="#" class="btn head-btn1">Register</a>
-                                    <a href="#" class="btn head-btn2">Login</a>
+                                    <a href="signup.jsp" class="btn head-btn1">Register</a>
+                                    <a href="login.jsp" class="btn head-btn2">Login</a>
                                 </div>
                             </div>
                         </div>
@@ -252,7 +252,7 @@
                                                 <div class="price_value d-flex justify-content-center">
                                                     <input type="text" class="js-input-from" id="amount" readonly />
                                                     <span>to</span>
-                                                    <input type="text" class="js-input-to" id="amount" readonly />
+                                                    <input type="text" class="js-input-to" id="" readonly />
                                                 </div>
                                             </div>
                                         </div>

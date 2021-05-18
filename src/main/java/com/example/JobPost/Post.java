@@ -1,5 +1,6 @@
 package com.example.JobPost;
 
+import java.io.InputStream;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -11,7 +12,8 @@ public class Post {
     private String title, description, companyDesc, companyEmail, companyWeb, salary;
 
     //toString
-    private String jobType, category, companyName, location, imgPath;
+    private String jobType, category, companyName, location;
+    private InputStream logo;
 
 
     public Post(int id, int jobTypeID, int jobCategory, int companyID, int jobLocation, LocalDate posted,
@@ -43,7 +45,7 @@ public class Post {
 
     //constructor to display jobdetails by id
     public Post(String jobType, String category, String companyName, String location, LocalDate posted,
-                LocalDate expires, String title, String description, int vacancy, String imgPath, String companyDesc,
+                LocalDate expires, String title, String description, int vacancy, InputStream logo, String companyDesc,
                 String companyEmail, String companyWeb) {
         this.jobType = jobType;
         this.category = category;
@@ -54,7 +56,7 @@ public class Post {
         this.title = title;
         this.description = description;
         this.vacancy = vacancy;
-        this.imgPath = imgPath;
+        this.logo = logo;
         this.companyDesc = companyDesc;
         this.companyEmail = companyEmail;
         this.companyWeb = companyWeb;
@@ -228,12 +230,12 @@ public class Post {
         this.location = location;
     }
 
-    public String getImgPath() {
-        return imgPath;
+    public InputStream getLogo() {
+        return logo;
     }
 
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
+    public void setImgPath(InputStream logo) {
+        this.logo = logo;
     }
 
     public String getCompanyDesc() {
@@ -273,7 +275,7 @@ public class Post {
                 ", category='" + category + '\'' +
                 ", companyName='" + companyName + '\'' +
                 ", location='" + location + '\'' +
-                ", imgPath='" + imgPath + '\'' +
+                ", imgPath='" + logo + '\'' +
                 '}';
     }
 

@@ -1,5 +1,6 @@
 package com.example.JobPost;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class JobPostDAO {
     private final static String insertSalary = "INSERT INTO job_salary (job_post_id, salary) VALUES (?, ?)";
     private final static String insertDetails = "INSERT INTO job_post_requirements (job_post_id, " +
             "knowledge_skills_abilities, education_experience) VALUES (?, ?, ?)";
-    private final static String selectPostById = "SELECT jp.*, c.*, jc.*, jl.*, jt.*, ci.image\n" +
+    private final static String selectPostById = "SELECT jp.*, c.*, jc.*, jl.*, jt.*, ci.logo\n" +
                                                 "FROM job_post jp,\n" +
                                                 "     company c,\n" +
                                                 "     job_category jc,\n" +
@@ -57,12 +58,12 @@ public class JobPostDAO {
                                             "  AND jp.job_location_id = jl.id\n" +
                                             "  AND jp.job_type_id = jt.id\n" +
                                             "  AND c.id = ?;";
-    private final static String insertImage = "INSERT INTO company_image (company_id, image, post_id) VALUES " +
+    private final static String insertImage = "INSERT INTO company_image (company_id, logo, post_id) VALUES " +
             "(?, ?, ?)";
     private final static String selectSalary = "SELECT * FROM job_salary WHERE job_post_id = ?";
     private final static String selectJobPostRequirements = "SELECT * FROM job_post_requirements WHERE job_post_id = ?";
     private final static String selectImage = "SELECT * FROM company_image WHERE post_id = ?";
-    private final static String jobListPosts = "SELECT jp.*, c.*, jl.*, jt.*, ci.image, js.*\n" +
+    private final static String jobListPosts = "SELECT jp.*, c.*, jl.*, jt.*, ci.logo, js.*\n" +
                                                 "FROM job_post jp,\n" +
                                                 "     company c,\n" +
                                                 "     job_location jl,\n" +
@@ -74,7 +75,7 @@ public class JobPostDAO {
                                                 "  AND jp.job_type_id = jt.id\n" +
                                                 "  AND ci.post_id = jp.id\n" +
                                                 "  AND jp.id = js.job_post_id;";
-    private final static String findJobPostByTitle = "SELECT jp.*, c.*, jl.*, jt.*, ci.image, js.*\n" +
+    private final static String findJobPostByTitle = "SELECT jp.*, c.*, jl.*, jt.*, ci.logo, js.*\n" +
                                                     "FROM job_post jp,\n" +
                                                     "     company c,\n" +
                                                     "     job_location jl,\n" +
@@ -87,7 +88,7 @@ public class JobPostDAO {
                                                     "  AND ci.post_id = jp.id\n" +
                                                     "  AND jp.id = js.job_post_id\n" +
                                                     "  AND jp.job_title LIKE ?";
-    private final static String findJobByTitleAndLocation = "SELECT jp.*, c.*, jl.*, jt.*, ci.image, js.*\n" +
+    private final static String findJobByTitleAndLocation = "SELECT jp.*, c.*, jl.*, jt.*, ci.logo, js.*\n" +
                                                             "FROM job_post jp,\n" +
                                                             "     company c,\n" +
                                                             "     job_location jl,\n" +
@@ -276,14 +277,14 @@ public class JobPostDAO {
                 int vacancy = set.getInt("vacancy");
                 LocalDate posted = set.getDate("date_posted").toLocalDate();
                 LocalDate expires = set.getDate("expires").toLocalDate();
-                String imgPath = set.getString("image");
+                InputStream logo = set.getBinaryStream("logo");
                 String location = city + ", " + country;
                 String companyDescription = set.getString("c.description");
                 String companyEmail = set.getString("company_email");
                 String web = set.getString("company_website");
 
                 post = new Post(jobType, jobCategory, companyName, location, posted, expires, title, desc, vacancy,
-                        imgPath, companyDescription, companyEmail, web);
+                        logo, companyDescription, companyEmail, web);
             }
         }
         catch (SQLException e) {
@@ -424,26 +425,26 @@ public class JobPostDAO {
         return details;
     }
 
-//    public CompanyImage getCompanyImage(int postID) {
-//        CompanyImage image = null;
-//
-//        try (Connection connection = getConn(); PreparedStatement statement = connection.prepareStatement(selectImage))
-//        {
-//            statement.setInt(1, postID);
-//            ResultSet set = statement.executeQuery();
-//
-//            while (set.next()) {
-//                String imagePath = set.getString("image");
-//
-//                image = new CompanyImage(imagePath);
-//            }
-//        }
-//        catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return image;
-//    }
+    public CompanyImage getCompanyImage(int postID) {
+        CompanyImage image = null;
+
+        try (Connection connection = getConn(); PreparedStatement statement = connection.prepareStatement(selectImage))
+        {
+            statement.setInt(1, postID);
+            ResultSet set = statement.executeQuery();
+
+            while (set.next()) {
+                InputStream imagePath = set.getBinaryStream("image");
+
+                image = new CompanyImage(imagePath);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return image;
+    }
 
     //display job categories on post edit - user
     public List<JobCategory> getCategories() {

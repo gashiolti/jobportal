@@ -65,7 +65,8 @@ public class Login extends HttpServlet {
                         } catch (Exception e) { e.printStackTrace(); }
 
                         userid.setAttribute("userid", id);
-                        request.getRequestDispatcher("/WEB-INF/view/user/home.jsp").forward(request, response);
+                        request.getRequestDispatcher("/WEB-INF/view/user/home.jsp?userid=" + id).
+                                forward(request, response);
                         return;
                     }
                 }
