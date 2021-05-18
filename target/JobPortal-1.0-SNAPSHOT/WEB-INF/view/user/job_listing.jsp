@@ -256,6 +256,7 @@
                                     <div class="items-link items-link2 f-right">
                                         <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=<%=p.getId()%>"><%=p.getJobType()%></a>
                                         <span><%=p.getPosted()%></span>
+                                        <span><%=p.getExpires()%></span>
                                     </div>
                                 </div>
                                 <%
