@@ -3,6 +3,7 @@ package com.example.redirect;
 import com.example.JobPost.*;
 import com.example.adminmanagment.dao.AdminDAO;
 import com.example.companymanagment.Company;
+import com.example.companymanagment.CompanyDAO;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -108,8 +109,13 @@ public class DispatchServlet extends HttpServlet {
 
     protected void redirectToProfilePage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int userid = Integer.parseInt(request.getParameter("userid"));
+
+        CompanyDAO dao = new CompanyDAO();
+        Company company = dao.getCompany(userid);
+        request.setAttribute("company", company);
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/user/profile" +
-                ".jsp?userid=" + userid);
+                ".jsp?userid=" + company.getId());
         dispatcher.forward(request, response);
     }
 

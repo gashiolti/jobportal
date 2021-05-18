@@ -121,6 +121,7 @@ public class CompanyDAO {
 
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
+                int userid = resultSet.getInt("id");
                 String name = resultSet.getString("company_name");
                 String address = resultSet.getString("company_address");
                 String email = resultSet.getString("company_email");
@@ -130,7 +131,7 @@ public class CompanyDAO {
                 String pass = resultSet.getString("pass");
                 int role = resultSet.getInt("role_id");
 
-                company = new Company(name, address, email, phoneNr, website, description, pass, role);
+                company = new Company(userid, name, address, email, phoneNr, website, description, pass, role);
             }
         }
         catch (SQLException e) {

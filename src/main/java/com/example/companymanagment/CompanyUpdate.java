@@ -29,7 +29,7 @@ public class CompanyUpdate extends HttpServlet {
 
     public void updateProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
-        String userid = request.getParameter("userid");
+        String userid = request.getParameter("id");
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phoneNr = request.getParameter("phonenr");
@@ -39,38 +39,51 @@ public class CompanyUpdate extends HttpServlet {
         String pass = request.getParameter("password");
         String confirmPass = request.getParameter("confirmPass");
         int id = idToInt(userid);
+//        int id = 3;
         String error = "";
         String message = "";
 
+        CompanyDAO dao = new CompanyDAO();
+        Company company = dao.getCompany(id);
+//
+//
         if(id == 0 || name.isEmpty() || email.isEmpty() || phoneNr.isEmpty() || website.isEmpty() || address.isEmpty()
                 || description.isEmpty() || pass.isEmpty() || confirmPass.isEmpty()) {
             error = "Do not leave the textboxs empty!";
             request.setAttribute("error", error);
-            request.getRequestDispatcher("/WEB-INF/view/user/profile?error="+error).forward(request, response);
+            request.setAttribute("company", company);
+            request.getRequestDispatcher("/WEB-INF/view/user/profile.jsp?error="+error+"&userid="+company.getId())
+                    .forward(request, response);
             return;
         }
 
         if((!pass.isEmpty() && confirmPass.isEmpty()) || (pass.isEmpty() && !confirmPass.isEmpty())) {
             error = "Please do not leave empty password or confirm password!";
             request.setAttribute("error", error);
-            request.getRequestDispatcher("/WEB-INF/view/user/profile.jsp?error="+error).forward(request, response);
+            request.setAttribute("company", company);
+            request.getRequestDispatcher("/WEB-INF/view/user/profile.jsp?error="+error+"&userid="+company.getId()).
+                    forward(request, response);
             return;
         }
 
         if(!pass.equals(confirmPass)) {
             error = "Passwords do not match, try again!";
             request.setAttribute("error", error);
-            request.getRequestDispatcher("/WEB-INF/view/user/profile.jsp?error="+error).forward(request, response);
+            request.setAttribute("company", company);
+            request.getRequestDispatcher("/WEB-INF/view/user/profile.jsp?error="+error+"&userid="+company.getId()).
+                    forward(request, response);
             return;
         }
 
-        CompanyDAO dao = new CompanyDAO();
+//        CompanyDAO dao = new CompanyDAO();
         String hashedpass = Crypto.encode(pass);
         try {
             dao.updateCompany(new Company(name, email, phoneNr, website, address, description, hashedpass, id));
             message = "Your profile has been successfully updated!";
             request.setAttribute("message", message);
-            request.getRequestDispatcher("/WEB-INF/view/user/profile.jsp?message="+message).forward(request, response);
+            request.setAttribute("company", company);
+            request.getRequestDispatcher("/WEB-INF/view/user/profile.jsp?message="+message+"&userid="+company.getId())
+                    .forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }
