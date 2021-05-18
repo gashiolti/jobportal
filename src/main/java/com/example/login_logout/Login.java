@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
         String pass = request.getParameter("password");
 
         String error = "";
-        String p = "pages/";
+        String p = "/";
 
         if(email != null && !email.isEmpty() && pass != null && !pass.isEmpty()) {
 
@@ -58,20 +58,26 @@ public class Login extends HttpServlet {
                     if(c.getEmail().equals(email) && c.getPass().equals(hashedPass)) {
                         HttpSession user = request.getSession();
                         user.setAttribute("email", c.getEmail());
-                        user.setAttribute("userid", c.getId());
+                        HttpSession userid = request.getSession();
+                        int id = 0;
+                        try {
+                            id = c.getId();
+                        } catch (Exception e) { e.printStackTrace(); }
+
+                        userid.setAttribute("userid", id);
                         request.getRequestDispatcher("/WEB-INF/view/user/home.jsp").forward(request, response);
                         return;
                     }
                 }
 
                 error = "Wrong login credentials, please try again!";
-                response.sendRedirect(p + "login.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+                response.sendRedirect("login.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
                 return;
             }
         }
         else {
             error = "Please fill both textboxs!";
-            response.sendRedirect(p + "login.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+            response.sendRedirect("login.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
             return;
         }
 

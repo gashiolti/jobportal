@@ -90,7 +90,6 @@
 }
 
 
-
 /*FILE jobposted===============================================================*/
 .post-added-wrapper {
     width: 100%;
@@ -253,4 +252,27 @@
 .custom-search-btn {
     width: 100%;
     height: 100%;
+}
+
+
+
+
+/*===================================================================================================*/
+
+.error {
+    background-color: #e30d0d;
+    color: black;
+    font-weight: 600;
+    padding: 10px 10px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.success {
+    background-color: #3dc768;
+    color: black;
+    font-weight: 600;
+    padding: 10px 10px;
+    border-radius: 3px;
+    margin-bottom: 15px;
 }

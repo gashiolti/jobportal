@@ -47,49 +47,49 @@ public class CompanySignup extends HttpServlet {
         {
             String error = "All textboxs must be filled!";
             request.getSession().setAttribute("errorDisplay", error);
-            response.sendRedirect("pages/signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+            response.sendRedirect("signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
             return;
         }
 
         if(name.length() < 2) {
             String error = "Name should be longer than 3 characters!";
             request.getSession().setAttribute("errorDisplay", error);
-            response.sendRedirect("pages/signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+            response.sendRedirect("signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
             return;
         }
 
         if(invalidEmail(email)) {
             String error = "This email is invalid. Please type another email!";
             request.getSession().setAttribute("errorDisplay", error);
-            response.sendRedirect("pages/signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+            response.sendRedirect("signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
             return;
         }
 
         if(!password.equals(confirmPass)) {
             String error = "The given passwords do not match!";
             request.getSession().setAttribute("errorDisplay", error);
-            response.sendRedirect("pages/signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+            response.sendRedirect("signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
             return;
         }
 
         if(address.length() < 2) {
             String error = "Address should be longer than 3 characters!";
             request.getSession().setAttribute("errorDisplay", error);
-            response.sendRedirect("pages/signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+            response.sendRedirect("signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
             return;
         }
 
         if(invalidWebURL(webUrl) == false) {
             String error = "This web url is invalid!";
             request.getSession().setAttribute("errorDisplay", error);
-            response.sendRedirect("pages/signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+            response.sendRedirect("signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
             return;
         }
 
         if(checkBox == null) {
             String error = "You should accept our term and services, so tick the box!";
             request.getSession().setAttribute("errorDisplay", error);
-            response.sendRedirect("pages/signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+            response.sendRedirect("signup.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
             return;
         }
 

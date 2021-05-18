@@ -99,6 +99,22 @@ public class Post {
         this.salary = salary;
     }
 
+    //constructor to update post from user
+    public Post(int jobType, int category, LocalDate expires, String title, String description, int vacancy) {
+        this.jobTypeID = jobType;
+        this.jobCategory = category;
+        this.expires = expires;
+        this.title = title;
+        this.description = description;
+        this.vacancy = vacancy;
+    }
+
+    //constructor to display data on editpost.jsp file - user
+    public Post(String title, String description, int vacancy) {
+        this.title = title;
+        this.description = description;
+        this.vacancy = vacancy;
+    }
 
     public int getId() {
         return id;

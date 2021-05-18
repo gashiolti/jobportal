@@ -65,7 +65,7 @@
             <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
                     <div class="card-body">
-                        <form method="POST" action="<%=request.getContextPath()%>/updateprofile">
+                        <form action="profileupdate?userid=<%=userid%>" method="POST">
                             <div class="row gutters">
                                 <%
                                     String query = request.getQueryString();
@@ -73,14 +73,14 @@
                                     if(url.contains("error")) {
                                 %>
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <p class="error-message">${errorMessage}</p>
+                                    <h5 class="error">${error}</h5>
                                 </div>
                                 <%
                                     } // close if statement
                                     if(url.contains("message")) {
                                 %>
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <p class="success">${successMessage}</p>
+                                    <h5 class="success">${message}</h5>
                                 </div>
                                 <%
                                     } // close if statement
@@ -91,7 +91,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="fullName">Company Name</label>
-                                        <input type="hidden" name="id" value="<%=id%>">
+                                        <input type="hidden" name="id" value="<%=company.getId()%>">
                                         <input type="text" class="form-control" name="name" id="fullName"
                                                placeholder="Company Name"
                                         value="<%=company.getName()%>">
@@ -118,7 +118,7 @@
                                         %>
                                         <input type="text" class="form-control" name="phonenr" id="phone"
                                                placeholder="Enter phone number"
-                                        value="<%=company.getPhoneNr()%>">
+                                        value="+<%=company.getPhoneNr()%>">
                                         <%
                                             } // close else statement
                                         %>

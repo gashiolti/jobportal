@@ -1,13 +1,8 @@
 package com.example.JobPost;
 
-import com.example.companymanagment.Company;
-
-import java.io.InputStream;
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class JobPostDAO {
@@ -109,16 +104,16 @@ public class JobPostDAO {
     private final static String updatePost = "UPDATE job_post jp\n" +
                                             "SET jp.job_type_id                 = ?,\n" +
                                             "    jp.job_category                = ?,\n" +
-                                            "    jp.job_location_id             = ?,\n" +
                                             "    jp.expires                     = ?,\n" +
                                             "    jp.job_title                   = ?,\n" +
                                             "    jp.job_description             = ?,\n" +
                                             "    jp.vacancy                     = ?\n" +
                                             "WHERE jp.id = ?;";
-    private final static String updateJobLocation = "UPDATE job_location jl, job_post jp" +
-                                                    "SET jl.city = ?, jl.country = ?" +
-                                                    "WHERE jp.job_location_id = jl.id" +
-                                                    "AND jp.id = ?";
+    private final static String updateJobLocation = "UPDATE job_location jl, job_post jp\n" +
+                                                    "SET jl.city    = ?,\n" +
+                                                    "    jl.country = ?\n" +
+                                                    "WHERE jp.job_location_id = jl.id\n" +
+                                                    "  AND jp.id = ?;";
     private final static String updateJobPostRequirements = "UPDATE job_post_requirements\n" +
                                                     "SET knowledge_skills_abilities = ?,\n" +
                                                     "    education_experience       = ?\n" +
@@ -127,8 +122,16 @@ public class JobPostDAO {
                                                 "SET salary = ?\n" +
                                                 "WHERE job_post_id = ?;";
     private final static String updatePostCompanyLogo = "UPDATE company_image\n" +
-                                                        "SET image = ?\n" +
+                                                        "SET logo = ?\n" +
                                                         "WHERE post_id = ?;";
+
+    //select queries to display data on updatepost page - user
+    private final static String selectJobCategories = "SELECT * FROM job_category";
+    private final static String selectJobTypes = "SELECT * FROM job_type";
+    private final static String selectJobLocation = "SELECT jl.* FROM job_location jl, job_post jp " +
+                                                    "WHERE jp.job_location_id = jl.id AND jp.id = ?";
+    private final static String selectPost = "SELECT * FROM job_post WHERE id = ?";
+
 
 
     private Connection getConn() {
@@ -244,7 +247,7 @@ public class JobPostDAO {
 
             int i = 1;
             statement.setInt(i++, image.getCompanyID());
-            statement.setString(i++, image.getCompanyImageUrl());
+            statement.setBlob(i++, image.getLogo());
             statement.setInt(i++, postID);
 
             statement.executeUpdate();
@@ -354,6 +357,29 @@ public class JobPostDAO {
         return posts;
     }
 
+    public Post displayPost(int postid) {
+        Post post = null;
+
+        try (Connection connection = getConn(); PreparedStatement statement = connection.prepareStatement(selectPost))
+        {
+            statement.setInt(1, postid);
+            ResultSet set = statement.executeQuery();
+
+            while (set.next()) {
+                String title = set.getString("job_title");
+                String desc = set.getString("job_description");
+                int vacancy = set.getInt("vacancy");
+
+                post = new Post(title, desc, vacancy);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return post;
+    }
+
 
     public Salary getSalary(int postID) {
         Salary salary = null;
@@ -398,25 +424,89 @@ public class JobPostDAO {
         return details;
     }
 
-    public CompanyImage getCompanyImage(int postID) {
-        CompanyImage image = null;
+//    public CompanyImage getCompanyImage(int postID) {
+//        CompanyImage image = null;
+//
+//        try (Connection connection = getConn(); PreparedStatement statement = connection.prepareStatement(selectImage))
+//        {
+//            statement.setInt(1, postID);
+//            ResultSet set = statement.executeQuery();
+//
+//            while (set.next()) {
+//                String imagePath = set.getString("image");
+//
+//                image = new CompanyImage(imagePath);
+//            }
+//        }
+//        catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return image;
+//    }
 
-        try (Connection connection = getConn(); PreparedStatement statement = connection.prepareStatement(selectImage))
-        {
-            statement.setInt(1, postID);
-            ResultSet set = statement.executeQuery();
+    //display job categories on post edit - user
+    public List<JobCategory> getCategories() {
+        List<JobCategory> categoryList = new ArrayList<JobCategory>();
 
-            while (set.next()) {
-                String imagePath = set.getString("image");
+        try (Connection connection = getConn(); PreparedStatement statement = connection.prepareStatement(selectJobCategories)) {
 
-                image = new CompanyImage(imagePath);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String category = rs.getString("job_category");
+
+                categoryList.add(new JobCategory(id, category));
             }
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
+        return categoryList;
+    }
 
-        return image;
+    //display job types on post edit - user
+    public List<JobType> getJobTypes() {
+        List<JobType> jobTypes = new ArrayList<JobType>();
+
+        try (Connection connection = getConn(); PreparedStatement statement =
+                connection.prepareStatement(selectJobTypes)) {
+
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String type = rs.getString("job_type");
+
+                jobTypes.add(new JobType(id, type));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return jobTypes;
+    }
+
+    //display job types on post edit - user
+    public JobLocation getJobLocation(int postid) {
+        JobLocation location = null;
+
+        try (Connection connection = getConn(); PreparedStatement statement =
+                connection.prepareStatement(selectJobLocation)) {
+
+            statement.setInt(1, postid);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String city = rs.getString("city");
+                String country = rs.getString("country");
+
+                location = new JobLocation(city, country);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return location;
     }
 
 
@@ -512,7 +602,7 @@ public class JobPostDAO {
     }
 
     //update post from user
-    public boolean updatePost(Post post) throws SQLException {
+    public boolean updatePost(Post post, int id) throws SQLException {
         boolean rowUpdated;
 
         if(updatePost == null)
@@ -524,12 +614,11 @@ public class JobPostDAO {
             int i=1;
             statement.setInt(i++, post.getJobTypeID());
             statement.setInt(i++, post.getJobCategory());
-            statement.setInt(i++, post.getJobLocation());
             statement.setObject(i++, post.getExpires());
             statement.setString(i++, post.getTitle());
             statement.setString(i++, post.getDescription());
             statement.setInt(i++, post.getVacancy());
-            statement.setInt(i++, post.getId());
+            statement.setInt(i++, id);
 
             rowUpdated = statement.executeUpdate() > 0;
         }
@@ -597,13 +686,33 @@ public class JobPostDAO {
         return rowUpdated;
     }
 
-//    public static void main(String[] args) {
-//
-//        JobPostDAO dao = new JobPostDAO();
-//        List<Post> posts = dao.searchJobsByTitle("programmer");
-//        for (Post post : posts) {
-//            System.out.println(post.toString());
-//        }
-//    }
+    //update company logo from user
+    public boolean updateLogo(CompanyImage image, int postid) throws SQLException {
+        boolean rowUpdated;
+
+        if(updatePost == null)
+            throw new IllegalArgumentException("something is wrong with the query, fix it");
+
+        try (Connection connection = getConn();
+             PreparedStatement statement = connection.prepareStatement(updatePostCompanyLogo))
+        {
+            int i=1;
+            statement.setBlob(i++, image.getLogo());
+            statement.setInt(i++, postid);
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
+    public static void main(String[] args) throws SQLException {
+
+        LocalDate date = LocalDate.now();
+        JobPostDAO dao = new JobPostDAO();
+        JobDetails details = new JobDetails("test1test", "test2test");
+        dao.updatePostDetails(details, 34);
+        System.out.println(details.toString());
+
+    }
 
 }

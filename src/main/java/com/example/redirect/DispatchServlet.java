@@ -1,7 +1,6 @@
 package com.example.redirect;
 
-import com.example.JobPost.JobPostDAO;
-import com.example.JobPost.Post;
+import com.example.JobPost.*;
 import com.example.adminmanagment.dao.AdminDAO;
 import com.example.companymanagment.Company;
 
@@ -127,8 +126,32 @@ public class DispatchServlet extends HttpServlet {
 
     protected void redirectToEditPostPage(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
+        String postid = request.getParameter("postid");
+//        int id = Integer.parseInt()
+
+        JobPostDAO dao = new JobPostDAO();
+        List<JobCategory> categories = dao.getCategories();
+        request.setAttribute("categories", categories);
+
+        List<JobType> types = dao.getJobTypes();
+        request.setAttribute("types", types);
+
+        Post post = dao.displayPost(Integer.parseInt(postid));
+        request.setAttribute("post", post);
+
+        Salary salary = dao.getSalary(Integer.parseInt(postid));
+        request.setAttribute("salary", salary);
+
+        JobLocation location = dao.getJobLocation(Integer.parseInt(postid));
+        request.setAttribute("location", location);
+
+        JobDetails details = dao.getJobDetails(Integer.parseInt(postid));
+        request.setAttribute("details", details);
+
+        request.setAttribute("postid", postid);
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/user/editpost" +
-                ".jsp?userid=");
+                ".jsp?postid="+postid);
         dispatcher.forward(request, response);
     }
 

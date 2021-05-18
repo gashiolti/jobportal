@@ -54,6 +54,7 @@ public class AddPost extends HttpServlet {
         String educationExperience = request.getParameter("ex");
         String expires = request.getParameter("expires");
         Part logo = request.getPart("logo");
+        InputStream inputStream = null;
         String error = "";
 
         String fileName = Paths.get(logo.getSubmittedFileName()).getFileName().toString().toLowerCase();
@@ -93,10 +94,13 @@ public class AddPost extends HttpServlet {
             if(fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png")) {
                 if(logo.getSize() < 10485760) {
 
+                    if(logo != null)
+                        inputStream = logo.getInputStream();
+
                     String path = "C:\\upload\\";
                     String uniqueId = UUID.randomUUID().toString();
-                    OutputStream out = null;
-                    InputStream filecontent = null;
+//                    OutputStream out = null;
+//                    InputStream filecontent = null;
 
                     int jobTypeToInt = toInt(jobType);
                     int categoryToInt = toInt(category);
@@ -104,16 +108,16 @@ public class AddPost extends HttpServlet {
                     LocalDate currentDate = new java.util.Date().toInstant().atZone(ZoneId.of("Europe/Berlin")).toLocalDate();
 
                     try {
-                        out = new FileOutputStream(new File(path + uniqueId + "." + fileName));
-                        filecontent = logo.getInputStream();
-                        int read = 0;
-////                        10485760
-                        long size = logo.getSize();
-                        final byte bytes[] = new byte[(int) size];
-//
-                        while((read = filecontent.read(bytes)) != -1) {
-                            out.write(bytes, 0, read);
-                        }
+//                        out = new FileOutputStream(new File(path + uniqueId + "." + fileName));
+//                        filecontent = logo.getInputStream();
+//                        int read = 0;
+//////                        10485760
+//                        long size = logo.getSize();
+//                        final byte bytes[] = new byte[(int) size];
+////
+//                        while((read = filecontent.read(bytes)) != -1) {
+//                            out.write(bytes, 0, read);
+//                        }
 
                         JobLocation location1 = new JobLocation(city, country);
                         jobPostDAO.addLocation(location1);
@@ -129,7 +133,7 @@ public class AddPost extends HttpServlet {
                                 educationExperience);
                         jobPostDAO.addJobDetails(details);
 
-                        CompanyImage image = new CompanyImage(id, path+uniqueId+"."+fileName, JobPostDAO.postID);
+                        CompanyImage image = new CompanyImage(id, inputStream, JobPostDAO.postID);
                         jobPostDAO.addCompanyImage(image);
 
                         request.getRequestDispatcher("/WEB-INF/view/user/postadded.jsp").forward(request,
@@ -138,11 +142,8 @@ public class AddPost extends HttpServlet {
                         e.printStackTrace();
                     }
                     finally {
-                        if(out != null)
-                            out.close();
-
-                        if(filecontent != null)
-                            filecontent.close();
+                        if(inputStream != null)
+                            inputStream.close();
                     }
                     return;
                 }

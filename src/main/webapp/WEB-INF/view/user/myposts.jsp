@@ -83,7 +83,6 @@
                                             <ul id="navigation">
                                                 <li><a href="${pageContext.request.contextPath}/dispatch?page=home">Home</a></li>
                                                 <li><a href="job_listing.html">Find a Jobs </a></li>
-                                                <li><a href="about.html">About</a></li>
                                                 <li><a href="#">Page</a>
                                                     <ul class="submenu">
                                                         <li><a href="${pageContext.request.contextPath}/dispatch?page=profile&userid=${userid}">

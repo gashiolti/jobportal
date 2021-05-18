@@ -1,5 +1,5 @@
 com\example\JobPortal\HelloResource.class
-com\example\JobPost\updatepost.class
+com\example\JobPost\JobCategory.class
 com\example\login_logout\Logout.class
 com\example\redirect\DispatchServlet.class
 com\example\adminmanagment\dao\AdminDAO.class
@@ -11,6 +11,7 @@ com\example\JobPost\AddPost.class
 com\example\JobPost\CompanyImage.class
 com\example\companymanagment\CompanySignup.class
 com\example\JobPost\JobPostDAO.class
+com\example\JobPost\EditPost.class
 com\example\JobPost\Searchpost.class
 com\example\adminmanagment\web\AdminSignupServlet.class
 com\example\companymanagment\CompanyDAO.class
@@ -18,6 +19,7 @@ com\example\JobPost\JobLocation.class
 com\example\login_logout\Login.class
 com\example\adminmanagment\web\AdminServlet.class
 com\example\JobPost\Post.class
+com\example\JobPost\JobType.class
 com\example\JobPortal\DAO.class
 com\example\JobPost\JobDetails.class
 com\example\JobPost\Salary.class

@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/jobportal</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="heroku_7c5078b35daf2f4@us-cdbr-east-03.cleardb.com" uuid="4763fc36-efe1-447d-b999-1f2687edd6e1">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://us-cdbr-east-03.cleardb.com:3306/heroku_7c5078b35daf2f4</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
