@@ -4,9 +4,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @WebServlet(name = "Searchjobs", value = "/seachjobs")
 public class SeachJobs extends HttpServlet {
@@ -79,25 +78,51 @@ public class SeachJobs extends HttpServlet {
     private void search(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
         String sortBy = request.getParameter("sortbydate");
+        String category = request.getParameter("category");
+        int categoryID = 0;
+        if(category != null) {
+            categoryID = toInt(category);
+        }
+        String type = request.getParameter("job_type");
+        int typeID = 0;
+        if(type != null) {
+            typeID = toInt(type);
+        }
+        String location = request.getParameter("location");
 
-        if (sortBy.equals("date_posted")) {
-            response.sendRedirect("job_listing.jsp");
-            return;
+        if(sortBy != null) {
+            if (sortBy.equals("date_posted")) {
+                response.sendRedirect("job_listing.jsp?sortby="+sortBy);
+                return;
+            }
+
+            if(sortBy.equals("expiration_date")) {
+                posts = dao.displayJobPosts();
+                Collections.sort(posts, new Comparator<Post>()
+                {
+                    @Override
+                    public int compare(Post o1, Post o2) {
+                        return o2.getExpires().compareTo(o1.getExpires());
+                    }
+                });
+
+                request.setAttribute("posts", posts);
+                response.sendRedirect("job_listing.jsp?sortby="+sortBy);
+                return;
+            }
         }
 
-        if(sortBy.equals("expiration_date")) {
+        if(categoryID != 0 || typeID != 0 || location != null) {
             posts = dao.displayJobPosts();
-            Collections.sort(posts, new Comparator<Post>()
-            {
-                @Override
-                public int compare(Post o1, Post o2) {
-                    return o2.getExpires().compareTo(o1.getExpires());
-                }
-            });
-
-            request.setAttribute("posts", posts);
-            response.sendRedirect("job_listing.jsp?sortby="+sortBy);
-            return;
+            int finalCategoryID = categoryID;
+            int finalTypeID = typeID;
+            Set<Post> set = posts.stream().filter(post -> post.getJobCategory() == finalCategoryID && post.getJobTypeID()
+                    == finalTypeID && post.getLocation().equals(location)).collect(Collectors.toSet());
+                for (Post p : set)
+                    System.out.println(p.toString());
+                request.setAttribute("set", set);
+                response.sendRedirect("job_listing.jsp?categoryid="+categoryID+"&typeid="+typeID+"&location="
+                        +location);
         }
     }
 
