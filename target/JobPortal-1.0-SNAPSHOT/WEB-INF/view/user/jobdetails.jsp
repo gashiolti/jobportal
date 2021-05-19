@@ -47,9 +47,8 @@
                         <div class="single-job-items mb-50">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
-                                    <a href="#"><img
-                                            src=""
-                                                     alt="Logo"></a>
+                                    <a href="#"><img src="imageServlet?postid=<%=postid%>" alt="Logo" width="90"
+                                    height="90"></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">

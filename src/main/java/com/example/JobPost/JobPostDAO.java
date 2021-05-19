@@ -132,6 +132,7 @@ public class JobPostDAO {
     private final static String selectJobLocation = "SELECT jl.* FROM job_location jl, job_post jp " +
                                                     "WHERE jp.job_location_id = jl.id AND jp.id = ?";
     private final static String selectPost = "SELECT * FROM job_post WHERE id = ?";
+    private final static String getTotalPosts = "SELECT COUNT(*) FROM job_post";
 
 
 
@@ -434,9 +435,8 @@ public class JobPostDAO {
             ResultSet set = statement.executeQuery();
 
             while (set.next()) {
-                InputStream imagePath = set.getBinaryStream("image");
-
-                image = new CompanyImage(imagePath);
+                InputStream logo = set.getBinaryStream("logo");
+                image = new CompanyImage(logo);
             }
         }
         catch (SQLException e) {
@@ -706,14 +706,31 @@ public class JobPostDAO {
         return rowUpdated;
     }
 
-    public static void main(String[] args) throws SQLException {
+    public int totalPosts() throws SQLException {
+        int total = 0;
+        if(getTotalPosts == null)
+            throw new IllegalArgumentException("something is wrong with the query, fix it");
 
-        LocalDate date = LocalDate.now();
-        JobPostDAO dao = new JobPostDAO();
-        JobDetails details = new JobDetails("test1test", "test2test");
-        dao.updatePostDetails(details, 34);
-        System.out.println(details.toString());
-
+        try (Connection connection = getConn(); PreparedStatement statement = connection.prepareStatement(getTotalPosts))
+        {
+            ResultSet rs = statement.executeQuery();
+            while (rs.next())
+                total = rs.getInt(1);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return total;
     }
+
+//    public static void main(String[] args) throws SQLException {
+//
+//        LocalDate date = LocalDate.now();
+//        JobPostDAO dao = new JobPostDAO();
+//        JobDetails details = new JobDetails("test1test", "test2test");
+//        dao.updatePostDetails(details, 34);
+//        System.out.println(details.toString());
+//
+//    }
 
 }

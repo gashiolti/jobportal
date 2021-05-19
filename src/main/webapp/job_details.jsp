@@ -74,8 +74,8 @@
                                 </div>          
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="#" class="btn head-btn1">Register</a>
-                                    <a href="#" class="btn head-btn2">Login</a>
+                                    <a href="signup.jsp" class="btn head-btn1">Register</a>
+                                    <a href="login.jsp" class="btn head-btn2">Login</a>
                                 </div>
                             </div>
                         </div>
@@ -117,9 +117,8 @@
                         <div class="single-job-items mb-50">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
-                                    <a href="#"><img
-                                            src=""
-                                            alt=""></a>
+                                    <a href="#"><img src="imageServlet?postid=<%=postid%>" alt="logo" width="90"
+                                    height="90"></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">

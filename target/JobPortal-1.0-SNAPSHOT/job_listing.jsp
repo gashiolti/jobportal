@@ -272,7 +272,10 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="count-job mb-35">
-                                            <span>3 Jobs found</span>
+                                            <%
+                                                JobPostDAO dao = new JobPostDAO();
+                                            %>
+                                            <span><%=dao.totalPosts()%> Jobs found</span>
                                             <!-- Select job items start -->
                                             <div class="select-job-items">
                                                 <span>Sort by</span>
@@ -290,17 +293,15 @@
                                 <!-- Count of Job list End -->
                                 <!-- single-job-content -->
                                 <%
-                                    JobPostDAO dao = new JobPostDAO();
                                     List<Post> postList = dao.displayJobPosts();
-
-
                                     for (Post p : postList) {
                                 %>
                                 <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=<%=p.getId()%>">
-                                                <img src="assets/img/icon/job-list1.png" alt="">
+                                                <img src="imageServlet?postid=<%=p.getId()%>" alt="logo" width="90"
+                                                     height="90">
                                             </a>
                                         </div>
                                         <div class="job-tittle job-tittle2">

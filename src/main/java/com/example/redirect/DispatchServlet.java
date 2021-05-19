@@ -57,7 +57,7 @@ public class DispatchServlet extends HttpServlet {
                 redirectToJobDetailsPage2(request, response);
                 break;
             case "joblist":
-                redirectToJobDetailsPageUser(request, response);
+                redirectToJobListingPageUser(request, response);
                 break;
         }
 
@@ -180,9 +180,8 @@ public class DispatchServlet extends HttpServlet {
         response.sendRedirect("job_details.jsp?postid=" + postid);
     }
 
-    protected void redirectToJobDetailsPageUser (HttpServletRequest request, HttpServletResponse response) throws ServletException,
+    protected void redirectToJobListingPageUser (HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
-        int postid = Integer.parseInt(request.getParameter("postid"));
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/user/job_listing.jsp");
         dispatcher.forward(request, response);
     }

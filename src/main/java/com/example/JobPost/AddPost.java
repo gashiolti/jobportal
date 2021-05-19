@@ -99,8 +99,8 @@ public class AddPost extends HttpServlet {
 
                     String path = "C:\\upload\\";
                     String uniqueId = UUID.randomUUID().toString();
-//                    OutputStream out = null;
-//                    InputStream filecontent = null;
+                    OutputStream out = null;
+                    InputStream filecontent = null;
 
                     int jobTypeToInt = toInt(jobType);
                     int categoryToInt = toInt(category);

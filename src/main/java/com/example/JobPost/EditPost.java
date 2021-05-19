@@ -3,14 +3,14 @@ package com.example.JobPost;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URLEncoder;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.UUID;
 
 @WebServlet(name = "editpost", value = "/editpost")
 @MultipartConfig
@@ -100,7 +100,13 @@ public class EditPost extends HttpServlet {
                     System.out.println(logo.getContentType());
                     inputStream = logo.getInputStream();
                 }
+
+                String path = "C:\\upload\\";
+                String uniqueId = UUID.randomUUID().toString();
+                OutputStream out = null;
+                InputStream filecontent = null;
                 LocalDate expires = null;
+
                 try {
                     expires = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
