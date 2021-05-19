@@ -8,9 +8,14 @@ import java.util.Map;
 
 public class DAO {
 
-    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
-    private final String jdbcUsername = "root";
-    private final String jdbcPassword = "";
+//    private final String jdbcURL = "jdbc:mysql://localhost:3306/jobportal";
+//    private final String jdbcUsername = "root";
+//    private final String jdbcPassword = "";
+
+    //heroku
+    private final String jdbcURL = "jdbc:mysql://us-cdbr-east-03.cleardb.com/heroku_7c5078b35daf2f4";
+    private final String username = "bf8a27c6dad1c6";
+    private final String password = "f426501a";
 
     private final String selectCategories = "SELECT * FROM job_category";
     private final String selectJobTypes = "SELECT * FROM job_type";
@@ -20,7 +25,7 @@ public class DAO {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+            connection = DriverManager.getConnection(jdbcURL, username, password);
         }
         catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
