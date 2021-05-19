@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
         if(email != null && !email.isEmpty() && pass != null && !pass.isEmpty()) {
 
             if(isAdmin(email, pass, request, response)) {
-                HttpSession userSession = request.getSession();
+                HttpSession userSession = request.getSession(true);
                 userSession.setAttribute("ADMIN_USER", email);
                 request.getRequestDispatcher("/WEB-INF/view/admin/index.jsp").forward(request, response);
                 return;
@@ -56,9 +56,9 @@ public class Login extends HttpServlet {
 
                 for(Company c : companies) {
                     if(c.getEmail().equals(email) && c.getPass().equals(hashedPass)) {
-                        HttpSession user = request.getSession();
+                        HttpSession user = request.getSession(true);
                         user.setAttribute("email", c.getEmail());
-                        HttpSession userid = request.getSession();
+                        HttpSession userid = request.getSession(true);
                         int id = 0;
                         try {
                             id = c.getId();

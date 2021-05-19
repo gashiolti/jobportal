@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.example.JobPost.JobPostDAO" %>
 <%@ page import="com.example.JobPost.Post" %>
 <%@ page import="java.util.List" %>
@@ -279,12 +280,13 @@
                                             <!-- Select job items start -->
                                             <div class="select-job-items">
                                                 <span>Sort by</span>
-                                                <select name="select">
-                                                    <option value="">None</option>
-                                                    <option value="">job list</option>
-                                                    <option value="">job list</option>
-                                                    <option value="">job list</option>
-                                                </select>
+                                                <form method="POST" action="seachjobs?type=client">
+                                                    <select name="sortbydate" onchange="this.form.submit()">
+                                                        <option disabled="disabled" selected>None</option>
+                                                        <option value="date_posted">D. Posted</option>
+                                                        <option value="expiration_date">Expiration D. </option>
+                                                    </select>
+                                                </form>
                                             </div>
                                             <!--  Select job items End-->
                                         </div>
@@ -293,8 +295,44 @@
                                 <!-- Count of Job list End -->
                                 <!-- single-job-content -->
                                 <%
-                                    List<Post> postList = dao.displayJobPosts();
-                                    for (Post p : postList) {
+                                    String query = request.getQueryString();
+                                    String url = request.getRequestURL() + query;
+
+                                    if(url.contains("expiration_date")) {
+                                %>
+                                <c:forEach items="${posts}" var="post">
+                                <div class="single-job-items mb-30">
+                                    <div class="job-items">
+                                        <div class="company-img">
+                                            <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
+                                                <img src="imageServlet?postid=${post.getId()}" alt="logo" width="90"
+                                                     height="90">
+                                            </a>
+                                        </div>
+                                        <div class="job-tittle job-tittle2">
+                                            <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
+                                                <h4>${post.getTitle()}</h4>
+                                                <input type="hidden" name="postid" value="${post.getId()}">
+                                            </a>
+                                            <ul>
+                                                <li>${post.getCompanyName()}</li>
+                                                <li><i class="fas fa-map-marker-alt"></i>${post.getLocation()}</li>
+                                                <li><i class="fas fa-euro-sign"></i>${post.getSalary()}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="items-link items-link2 f-right">
+                                        <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid
+                                        =${post.getId()}">${post.getJobType()}</a>
+                                        <span>${post.getPosted()}</span>
+                                        <span>${post.getExpires()}</span>
+                                    </div>
+                                </div>
+                                </c:forEach>
+                                <%
+                                    } else {
+                                        List<Post> postList = dao.displayJobPosts();
+                                        for (Post p : postList) {
                                 %>
                                 <div class="single-job-items mb-30">
                                     <div class="job-items">
@@ -323,7 +361,8 @@
                                     </div>
                                 </div>
                                 <%
-                                    } // close foreach loop
+                                        } // close foreach loop
+                                    } // close else loop
                                 %>
                             </div>
                         </section>
@@ -490,38 +529,38 @@
 	<!-- JS here -->
 	
 		<!-- All JS Custom Plugins Link Here here -->
-        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.5.0.min.js"></script>
 		<!-- Jquery, Popper, Bootstrap -->
-		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="./assets/js/popper.min.js"></script>
-        <script src="./assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
 	    <!-- Jquery Mobile Menu -->
-        <script src="./assets/js/jquery.slicknav.min.js"></script>
+        <script src="assets/js/jquery.slicknav.min.js"></script>
 
 		<!-- Jquery Slick , Owl-Carousel Range -->
-        <script src="./assets/js/owl.carousel.min.js"></script>
-        <script src="./assets/js/slick.min.js"></script>
-        <script src="./assets/js/price_rangs.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="assets/js/slick.min.js"></script>
+        <script src="assets/js/price_rangs.js"></script>
 		<!-- One Page, Animated-HeadLin -->
-        <script src="./assets/js/wow.min.js"></script>
-		<script src="./assets/js/animated.headline.js"></script>
-        <script src="./assets/js/jquery.magnific-popup.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+		<script src="assets/js/animated.headline.js"></script>
+        <script src="assets/js/jquery.magnific-popup.js"></script>
 
 		<!-- Scrollup, nice-select, sticky -->
-        <script src="./assets/js/jquery.scrollUp.min.js"></script>
-        <script src="./assets/js/jquery.nice-select.min.js"></script>
-		<script src="./assets/js/jquery.sticky.js"></script>
+        <script src="assets/js/jquery.scrollUp.min.js"></script>
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+		<script src="assets/js/jquery.sticky.js"></script>
         
         <!-- contact js -->
-        <script src="./assets/js/contact.js"></script>
-        <script src="./assets/js/jquery.form.js"></script>
-        <script src="./assets/js/jquery.validate.min.js"></script>
-        <script src="./assets/js/mail-script.js"></script>
-        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="assets/js/contact.js"></script>
+        <script src="assets/js/jquery.form.js"></script>
+        <script src="assets/js/jquery.validate.min.js"></script>
+        <script src="assets/js/mail-script.js"></script>
+        <script src="assets/js/jquery.ajaxchimp.min.js"></script>
         
 		<!-- Jquery Plugins, main Jquery -->	
-        <script src="./assets/js/plugins.js"></script>
-        <script src="./assets/js/main.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
         
     </body>
 </html>

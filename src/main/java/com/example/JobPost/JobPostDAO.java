@@ -74,7 +74,8 @@ public class JobPostDAO {
                                                 "  AND jp.job_location_id = jl.id\n" +
                                                 "  AND jp.job_type_id = jt.id\n" +
                                                 "  AND ci.post_id = jp.id\n" +
-                                                "  AND jp.id = js.job_post_id;";
+                                                "  AND jp.id = js.job_post_id " +
+                                                "ORDER BY jp.date_posted DESC;";
     private final static String findJobPostByTitle = "SELECT jp.*, c.*, jl.*, jt.*, ci.logo, js.*\n" +
                                                     "FROM job_post jp,\n" +
                                                     "     company c,\n" +
