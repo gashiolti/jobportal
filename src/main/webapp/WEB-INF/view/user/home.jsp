@@ -34,7 +34,8 @@
                         <div class="row" style="margin-bottom: 50px;">
                             <div class="col-xl-8">
                                 <!-- form -->
-                                <form action="${pageContext.request.contextPath}/searchpost?type=user" class="search-box">
+                                <form method="POST" action="${pageContext.request.contextPath}/searchpost?usertype=user"
+                                      class="search-box">
                                     <div class="input-form">
                                         <input name="title" type="text" placeholder="Job Tittle or keyword">
                                     </div>

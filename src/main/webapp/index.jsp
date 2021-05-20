@@ -100,7 +100,7 @@
                         <div class="row">
                             <div class="col-xl-8">
                                 <!-- form -->
-                                <form method="GET" action="${pageContext.request.contextPath}/searchpost"
+                                <form method="POST" action="${pageContext.request.contextPath}/searchpost?usertype=client"
                                        class="search-box">
                                     <div class="input-form">
                                         <input type="text" name="title" placeholder="Job Tittle or keyword">

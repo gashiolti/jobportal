@@ -730,15 +730,15 @@ public class JobPostDAO {
 //    public static void main(String[] args) throws SQLException {
 //
 //        JobPostDAO dao = new JobPostDAO();
-//        List<Post> posts = dao.displayJobPosts();
-//        List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 1 ).collect(Collectors.toList());
-//        Iterator<Post> iterator = set.iterator();
-//        while (iterator.hasNext())
-//            System.out.println(iterator.next());
-////        for(Post p : posts) {
-////            System.out.println(p.toString());
-////        }
-//        set.forEach(System.out::println);
+//        List<Post> posts = dao.searchJobsByTitle("programmer");
+////        List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 1 ).collect(Collectors.toList());
+////        Iterator<Post> iterator = set.iterator();
+////        while (iterator.hasNext())
+////            System.out.println(iterator.next());
+//////        for(Post p : posts) {
+//////            System.out.println(p.toString());
+//////        }
+//        posts.forEach(System.out::println);
 //    }
 
 }

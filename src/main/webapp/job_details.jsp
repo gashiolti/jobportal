@@ -114,7 +114,7 @@
                     <!-- Left Content -->
                     <div class="col-xl-7 col-lg-8">
                         <!-- job single -->
-                        <div class="single-job-items mb-50">
+                        <div class="single-job-items mb-50" style="border: 1px solid #e8e8e8;">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
                                     <a href="#"><img src="imageServlet?postid=<%=postid%>" alt="logo" width="90"
