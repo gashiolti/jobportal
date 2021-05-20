@@ -129,6 +129,7 @@ public class JobPostDAO {
     private final static String updatePostCompanyLogo = "UPDATE company_image\n" +
                                                         "SET logo = ?\n" +
                                                         "WHERE post_id = ?;";
+    private final static String getPosts = "SELECT * FROM job_post";
 
     //select queries to display data on updatepost page - user
     private final static String selectJobCategories = "SELECT * FROM job_category";
@@ -343,6 +344,9 @@ public class JobPostDAO {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 int postID = rs.getInt("id");
+                int jobTypeID = rs.getInt("job_type_id");
+                int jobCategoryID = rs.getInt("job_category");
+                int locationID = rs.getInt("job_location_id");
                 String companyName = rs.getString("company_name");
                 String title = rs.getString("job_title");
                 String jobType = rs.getString("job_type");
@@ -353,7 +357,8 @@ public class JobPostDAO {
                 LocalDate expires = rs.getDate("expires").toLocalDate();
                 String location = city + ", " + country;
 
-                posts.add(new Post(postID, jobType, companyName, location, posted, expires, title, salary));
+                posts.add(new Post(postID, jobTypeID, jobCategoryID, locationID, jobType, companyName, location, posted,
+                        expires, title, salary));
             }
         }
         catch (SQLException e) {
@@ -525,6 +530,9 @@ public class JobPostDAO {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 int postID = rs.getInt("id");
+                int jobTypeID = rs.getInt("job_type_id");
+                int jobCategoryID = rs.getInt("job_category");
+                int locationID = rs.getInt("job_location_id");
                 String companyName = rs.getString("company_name");
                 String jobTitle = rs.getString("job_title");
                 String jobType = rs.getString("job_type");
@@ -535,7 +543,8 @@ public class JobPostDAO {
                 LocalDate expires = rs.getDate("expires").toLocalDate();
                 String location = city + ", " + country;
 
-                posts.add(new Post(postID, jobType, companyName, location, posted, expires, jobTitle, salary));
+                posts.add(new Post(postID, jobTypeID, jobCategoryID, locationID, jobType, companyName, location, posted,
+                        expires, jobTitle, salary));
             }
         }
         catch (SQLException e) {
@@ -556,6 +565,9 @@ public class JobPostDAO {
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 int postID = rs.getInt("id");
+                int jobTypeID = rs.getInt("job_type_id");
+                int jobCategoryID = rs.getInt("job_category");
+                int locationID = rs.getInt("job_location_id");
                 String companyName = rs.getString("company_name");
                 String jobTitle = rs.getString("job_title");
                 String jobType = rs.getString("job_type");
@@ -566,7 +578,8 @@ public class JobPostDAO {
                 LocalDate expires = rs.getDate("expires").toLocalDate();
                 String jobLocation = city + ", " + country;
 
-                posts.add(new Post(postID, jobType, companyName, jobLocation, posted, expires, jobTitle, salary));
+                posts.add(new Post(postID, jobTypeID, jobCategoryID, locationID, jobType, companyName, jobLocation,
+                        posted, expires, jobTitle, salary));
             }
         }
         catch (SQLException e) {
@@ -727,18 +740,19 @@ public class JobPostDAO {
         return total;
     }
 
-//    public static void main(String[] args) throws SQLException {
-//
-//        JobPostDAO dao = new JobPostDAO();
-//        List<Post> posts = dao.searchJobsByTitle("programmer");
-////        List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 1 ).collect(Collectors.toList());
-////        Iterator<Post> iterator = set.iterator();
-////        while (iterator.hasNext())
-////            System.out.println(iterator.next());
-//////        for(Post p : posts) {
-//////            System.out.println(p.toString());
-//////        }
-//        posts.forEach(System.out::println);
-//    }
+    public static void main(String[] args) throws SQLException {
+
+        JobPostDAO dao = new JobPostDAO();
+        List<Post> posts = dao.displayJobPosts();
+        List<Post> set = posts.stream().filter(post -> post.getJobTypeID() == 1 && post.getJobCategory() == 1
+                        && post.getLocation().contains("Kosovo")).collect(Collectors.toList());
+//        List<Post> temp = new ArrayList<Post>();
+//        for(Post p : posts) {
+//            if(p.getJobType().equals("Full Time")) {
+//                temp.add(p);
+//            }
+//        }
+        set.forEach(System.out::println);
+    }
 
 }

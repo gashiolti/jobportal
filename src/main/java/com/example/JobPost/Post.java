@@ -89,9 +89,12 @@ public class Post {
     }
 
     //constructor to display posts on joblist file
-    public Post(int postID, String jobType, String companyName, String location, LocalDate posted, LocalDate expires,
-                String title, String salary) {
+    public Post(int postID, int jobTypeID, int jobCategory, int jobLocation, String jobType, String companyName,
+                String location, LocalDate posted, LocalDate expires, String title, String salary) {
         this.id = postID;
+        this.jobTypeID = jobTypeID;
+        this.jobCategory = jobCategory;
+        this.jobLocation = jobLocation;
         this.jobType = jobType;
         this.companyName = companyName;
         this.location = location;

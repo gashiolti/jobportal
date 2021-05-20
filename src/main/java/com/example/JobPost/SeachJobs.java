@@ -82,13 +82,14 @@ public class SeachJobs extends HttpServlet {
             posts = dao.displayJobPosts();
             int finalCategoryID = categoryID;
             int finalTypeID = typeID;
-            Set<Post> set = posts.stream().filter(post -> post.getJobCategory() == finalCategoryID && post.getJobTypeID()
-                    == finalTypeID && post.getLocation().equals(location)).collect(Collectors.toSet());
-            for (Post p : set)
-                System.out.println(p.toString());
+            List<Post> set = posts.stream().filter(post -> post.getJobCategory() == finalCategoryID && post.getJobTypeID()
+                    == finalTypeID && post.getLocation().contains(location)).collect(Collectors.toList());
             request.getSession().setAttribute("set", set);
-            response.sendRedirect("/WEB-INF/view/user/job_listing.jsp?categoryid="+categoryID+"&typeid="+typeID+
-                    "&location=" +location);
+            int total = set.size();
+            request.getSession().setAttribute("size", total);
+            request.getRequestDispatcher("/WEB-INF/view/user/job_listing.jsp?categoryid="+categoryID+"&typeid="+typeID+
+                    "&location=" +location).forward(request, response);
+            return;
         }
 
     }
@@ -134,12 +135,12 @@ public class SeachJobs extends HttpServlet {
             posts = dao.displayJobPosts();
             int finalCategoryID = categoryID;
             int finalTypeID = typeID;
-            Set<Post> set = posts.stream().filter(post -> post.getJobCategory() == finalCategoryID && post.getJobTypeID()
-                    == finalTypeID && post.getLocation().equals(location)).collect(Collectors.toSet());
-                for (Post p : set)
-                    System.out.println(p.toString());
-                request.getSession().setAttribute("set", set);
-                response.sendRedirect("job_listing.jsp?categoryid="+categoryID+"&typeid="+typeID+"&location="
+            List<Post> set = posts.stream().filter(post -> post.getJobCategory() == finalCategoryID && post.getJobTypeID()
+                    == finalTypeID && post.getLocation().contains(location)).collect(Collectors.toList());
+            request.getSession().setAttribute("set", set);
+            int total = set.size();
+            request.getSession().setAttribute("size", total);
+            response.sendRedirect("job_listing.jsp?categoryid="+categoryID+"&typeid="+typeID+"&location="
                         +location);
         }
     }
