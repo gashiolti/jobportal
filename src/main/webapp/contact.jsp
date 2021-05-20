@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/customstyle.css">
 </head>
 
 <body>
@@ -101,11 +102,31 @@
 
     
                 <div class="row">
+                    <%
+                        String query = request.getQueryString();
+                        String url = request.getRequestURL().toString() + query;
+                        if(url.contains("message")) {
+                    %>
+                    <div class="col-12">
+                        <p class="success">${message}</p>
+                    </div>
+                    <%
+                        } // close if statement
+                    %>
                     <div class="col-12">
                         <h2 class="contact-title">Get in Touch</h2>
                     </div>
+                    <%
+                        if(url.contains("error")) {
+                    %>
+                    <div class="col-12">
+                        <p class="error">${error}</p>
+                    </div>
+                    <%
+                        } // close if statement
+                    %>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <form class="form-contact contact_form" method="POST" action="contact?usertype=client">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
@@ -114,7 +135,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                        <input class="form-control valid" name="name" id="name" type="text"
+                                               onfocus="this.placeholder = ''" onblur="this.placeholder ='Enter your full name'" placeholder="Enter your full name">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

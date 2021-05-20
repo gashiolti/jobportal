@@ -59,6 +59,12 @@ public class DispatchServlet extends HttpServlet {
             case "joblist":
                 redirectToJobListingPageUser(request, response);
                 break;
+            case "contact":
+                redirectToContactPageUser(request, response);
+                break;
+            default:
+                request.getRequestDispatcher("/WEB-INF/view/user/home.jsp");
+                break;
         }
 
     }
@@ -186,4 +192,9 @@ public class DispatchServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    protected void redirectToContactPageUser (HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/user/contact.jsp");
+        dispatcher.forward(request, response);
+    }
 }

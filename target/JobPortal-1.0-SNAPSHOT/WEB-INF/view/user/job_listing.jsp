@@ -1,6 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.example.JobPost.JobPostDAO" %>
 <%@ page import="com.example.JobPost.Post" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.example.JobPost.JobCategory" %>
+<%@ page import="com.example.JobPost.JobType" %>
 
 <jsp:include page="header.jsp" />
 
@@ -58,146 +61,73 @@
                             </div>
                         </div>
                         <!-- Job Category Listing start -->
-                        <div class="job-category-listing mb-50">
-                            <!-- single one -->
-                            <div class="single-listing">
-                                <div class="small-section-tittle2">
-                                    <h4>Job Category</h4>
-                                </div>
-                                <!-- Select job items start -->
-                                <div class="select-job-items2">
-                                    <select name="select">
-                                        <option disabled="disabled" selected="selected">All Category</option>
-                                        <%
-                                            JobPostDAO dao = new JobPostDAO();
-                                            List<JobCategory> categories = dao.getCategories();
-                                            for (JobCategory c : categories) {
-                                        %>
-                                        <option value="<%=c.getId()%>"><%=c.getCategory()%></option>
-                                        <%
-                                            } // close foreach loop
-                                        %>
-                                    </select>
-                                </div>
-                                <!--  Select job items End-->
-                                <!-- select-Categories start -->
-                                <div class="select-Categories pt-80 pb-50">
+                        <form method="POST" action="seachjobs?type=user">
+                            <div class="job-category-listing mb-50">
+                                <!-- single one -->
+                                <div class="single-listing">
                                     <div class="small-section-tittle2">
-                                        <h4>Job Type</h4>
+                                        <h4>Job Category</h4>
                                     </div>
-                                    <label class="container">Full Time
-                                        <input type="checkbox" >
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Part Time
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container">Remote
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    <!-- Select job items start -->
+                                    <div class="select-job-items2">
+                                        <select name="category">
+                                            <option disabled="disabled" selected="selected">All Category</option>
+                                            <%
+                                                JobPostDAO dao = new JobPostDAO();
+                                                List<JobCategory> categories = dao.getCategories();
+                                                for (JobCategory c : categories) {
+                                            %>
+                                            <option value="<%=c.getId()%>"><%=c.getCategory()%></option>
+                                            <%
+                                                } // close foreach loop
+                                            %>
+                                        </select>
+                                    </div>
+                                    <!--  Select job items End-->
+                                    <!-- select-Categories start -->
+                                    <div class="select-Categories pt-80 pb-50">
+                                        <div class="small-section-tittle2">
+                                            <h4>Job Type</h4>
+                                        </div>
+                                        <div class="select-job-items2">
+                                            <select name="job_type">
+                                                <option disabled="disabled" selected="selected">All Type</option>
+                                                <%
+                                                    List<JobType> types = dao.getJobTypes();
+                                                    for (JobType t : types) {
+                                                %>
+                                                <option value="<%=t.getId()%>"><%=t.getJobType()%></option>
+                                                <%
+                                                    } // close foreach loop
+                                                %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- select-Categories End -->
                                 </div>
-                                <!-- select-Categories End -->
+                                <!-- single two -->
+                                <div class="single-listing" style="margin-top: 30px;">
+                                    <div class="small-section-tittle2">
+                                        <h4>Job Location</h4>
+                                    </div>
+                                    <!-- Select job items start -->
+                                    <div class="select-job-items2">
+                                        <select name="location">
+                                            <option disabled="disabled" selected="selected">Anywhere</option>
+                                            <option value="Kosovo">Kosovo</option>
+                                            <option value="Albania">Albania</option>
+                                        </select>
+                                    </div>
+                                    <!--  Select job items End-->
+                                    <!-- select-Categories start -->
+                                    <div class="select-Categories pt-80 pb-50">
+                                        <button type="submit" class="button button-contactForm boxed-btn">Search</button>
+                                    </div>
+                                    <!-- select-Categories End -->
+                                </div>
+                                <!-- single three -->
                             </div>
-                            <!-- single two -->
-                            <div class="single-listing">
-                                <div class="small-section-tittle2">
-                                    <h4>Job Location</h4>
-                                </div>
-                                <!-- Select job items start -->
-                                <div class="select-job-items2">
-                                    <select name="select">
-                                        <option disabled="disabled" selected="selected">Anywhere</option>
-                                        <option value="Kosovo">Kosovo</option>
-                                        <option value="Albania">Albania</option>
-                                    </select>
-                                </div>
-                                <!--  Select job items End-->
-                                <!-- select-Categories start -->
-                                <div class="select-Categories pt-80 pb-50">
-                                    <%--                                    <div class="small-section-tittle2">--%>
-                                    <%--                                        <h4>Experience</h4>--%>
-                                    <%--                                    </div>--%>
-                                    <%--                                    <label class="container">1-2 Years--%>
-                                    <%--                                        <input type="checkbox" >--%>
-                                    <%--                                        <span class="checkmark"></span>--%>
-                                    <%--                                    </label>--%>
-                                    <%--                                    <label class="container">2-3 Years--%>
-                                    <%--                                        <input type="checkbox" checked="checked active">--%>
-                                    <%--                                        <span class="checkmark"></span>--%>
-                                    <%--                                    </label>--%>
-                                    <%--                                    <label class="container">3-6 Years--%>
-                                    <%--                                        <input type="checkbox">--%>
-                                    <%--                                        <span class="checkmark"></span>--%>
-                                    <%--                                    </label>--%>
-                                    <%--                                    <label class="container">6-more..--%>
-                                    <%--                                        <input type="checkbox">--%>
-                                    <%--                                        <span class="checkmark"></span>--%>
-                                    <%--                                    </label>--%>
-                                </div>
-                                <!-- select-Categories End -->
-                            </div>
-                            <!-- single three -->
-                            <%--                            <div class="single-listing">--%>
-                            <%--                                <!-- select-Categories start -->--%>
-                            <%--                                <div class="select-Categories pb-50">--%>
-                            <%--                                    <div class="small-section-tittle2">--%>
-                            <%--                                        <h4>Posted Within</h4>--%>
-                            <%--                                    </div>--%>
-                            <%--                                    <label class="container">Any--%>
-                            <%--                                        <input type="checkbox" >--%>
-                            <%--                                        <span class="checkmark"></span>--%>
-                            <%--                                    </label>--%>
-                            <%--                                    <label class="container">Today--%>
-                            <%--                                        <input type="checkbox" checked="checked active">--%>
-                            <%--                                        <span class="checkmark"></span>--%>
-                            <%--                                    </label>--%>
-                            <%--                                    <label class="container">Last 2 days--%>
-                            <%--                                        <input type="checkbox">--%>
-                            <%--                                        <span class="checkmark"></span>--%>
-                            <%--                                    </label>--%>
-                            <%--                                    <label class="container">Last 3 days--%>
-                            <%--                                        <input type="checkbox">--%>
-                            <%--                                        <span class="checkmark"></span>--%>
-                            <%--                                    </label>--%>
-                            <%--                                    <label class="container">Last 5 days--%>
-                            <%--                                        <input type="checkbox">--%>
-                            <%--                                        <span class="checkmark"></span>--%>
-                            <%--                                    </label>--%>
-                            <%--                                    <label class="container">Last 10 days--%>
-                            <%--                                        <input type="checkbox">--%>
-                            <%--                                        <span class="checkmark"></span>--%>
-                            <%--                                    </label>--%>
-                            <%--                                </div>--%>
-                            <%--                                <!-- select-Categories End -->--%>
-                            <%--                            </div>--%>
-                            <%--                            <div class="single-listing">--%>
-                            <%--                                <!-- Range Slider Start -->--%>
-                            <%--                                <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">--%>
-                            <%--                                    <div class="small-section-tittle2">--%>
-                            <%--                                        <h4>Filter Jobs</h4>--%>
-                            <%--                                    </div>--%>
-                            <%--                                    <div class="widgets_inner">--%>
-                            <%--                                        <div class="range_item">--%>
-                            <%--                                            <!-- <div id="slider-range"></div> -->--%>
-                            <%--                                            <input type="text" class="js-range-slider" value="" />--%>
-                            <%--                                            <div class="d-flex align-items-center">--%>
-                            <%--                                                <div class="price_text">--%>
-                            <%--                                                    <p>Price :</p>--%>
-                            <%--                                                </div>--%>
-                            <%--                                                <div class="price_value d-flex justify-content-center">--%>
-                            <%--                                                    <input type="text" class="js-input-from" id="amount" readonly />--%>
-                            <%--                                                    <span>to</span>--%>
-                            <%--                                                    <input type="text" class="js-input-to" id="" readonly />--%>
-                            <%--                                                </div>--%>
-                            <%--                                            </div>--%>
-                            <%--                                        </div>--%>
-                            <%--                                    </div>--%>
-                            <%--                                </aside>--%>
-                            <%--                              <!-- Range Slider End -->--%>
-                            <%--                            </div>--%>
-                        </div>
+                        </form>
                         <!-- Job Category Listing End -->
                     </div>
                     <!-- Right content -->
@@ -213,7 +143,7 @@
                                             <!-- Select job items start -->
                                             <div class="select-job-items">
                                                 <span>Sort by</span>
-                                                <form method="POST" action="seachjobs?type=client">
+                                                <form method="POST" action="seachjobs?type=user">
                                                     <select name="sortbydate" onchange="this.form.submit()">
                                                         <option disabled="disabled" selected>None</option>
                                                         <option value="date_posted">D. Posted</option>
@@ -234,7 +164,72 @@
                                     if(url.contains("expiration_date")) {
                                 %>
                                 <c:forEach items="${posts}" var="post">
-                                    <div class="single-job-items mb-30" style="border: 1px solid #525050;">
+                                    <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
+                                        <div class="job-items">
+                                            <div class="company-img">
+                                                <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
+                                                    <img src="imageServlet?postid=${post.getId()}" alt="logo" width="90"
+                                                         height="90">
+                                                </a>
+                                            </div>
+                                            <div class="job-tittle job-tittle2">
+                                                <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
+                                                    <h4>${post.getTitle()}</h4>
+                                                    <input type="hidden" name="postid" value="${post.getId()}">
+                                                </a>
+                                                <ul>
+                                                    <li>${post.getCompanyName()}</li>
+                                                    <li><i class="fas fa-map-marker-alt"></i>${post.getLocation()}</li>
+                                                    <li><i class="fas fa-euro-sign"></i>${post.getSalary()}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="items-link items-link2 f-right">
+                                            <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid
+                                        =${post.getId()}">${post.getJobType()}</a>
+                                            <span>${post.getPosted()}</span>
+                                            <span>${post.getExpires()}</span>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                                <%
+                                } else if (url.contains("date_posted")) {
+                                    List<Post> postList = dao.displayJobPosts();
+                                    for (Post p : postList) {
+                                %>
+                                <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
+                                    <div class="job-items">
+                                        <div class="company-img">
+                                            <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=<%=p.getId()%>">
+                                                <img src="imageServlet?postid=<%=p.getId()%>" alt="logo" width="90"
+                                                     height="90">
+                                            </a>
+                                        </div>
+                                        <div class="job-tittle job-tittle2">
+                                            <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=<%=p.getId()%>">
+                                                <h4><%=p.getTitle()%></h4>
+                                                <input type="hidden" name="postid" value="<%=p.getId()%>">
+                                            </a>
+                                            <ul>
+                                                <li><%=p.getCompanyName()%></li>
+                                                <li><i class="fas fa-map-marker-alt"></i><%=p.getLocation()%></li>
+                                                <li><i class="fas fa-euro-sign"></i><%=p.getSalary()%></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="items-link items-link2 f-right">
+                                        <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=<%=p.getId()%>"><%=p.getJobType()%></a>
+                                        <span><%=p.getPosted()%></span>
+                                        <span><%=p.getExpires()%></span>
+                                    </div>
+                                </div>
+                                <%
+                                    } // close foreach loop
+                                } else if(url.contains("categoryid") && url.contains("typeid") &&
+                                        url.contains("location")) {
+                                %>
+                                <c:forEach items="${set}" var="post">
+                                    <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
                                         <div class="job-items">
                                             <div class="company-img">
                                                 <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
@@ -267,7 +262,7 @@
                                     List<Post> postList = dao.displayJobPosts();
                                     for (Post p : postList) {
                                 %>
-                                <div class="single-job-items mb-30">
+                                <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=<%=p.getId()%>">
@@ -294,8 +289,8 @@
                                     </div>
                                 </div>
                                 <%
-                                        } // close foreach loop
-                                    } // close else loop
+                                        } // close for loop
+                                    } // close else statement
                                 %>
                             </div>
                         </section>

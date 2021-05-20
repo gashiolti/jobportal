@@ -4,7 +4,10 @@ import java.io.InputStream;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class JobPostDAO {
 
@@ -726,12 +729,16 @@ public class JobPostDAO {
 
 //    public static void main(String[] args) throws SQLException {
 //
-//        LocalDate date = LocalDate.now();
 //        JobPostDAO dao = new JobPostDAO();
-//        JobDetails details = new JobDetails("test1test", "test2test");
-//        dao.updatePostDetails(details, 34);
-//        System.out.println(details.toString());
-//
+//        List<Post> posts = dao.displayJobPosts();
+//        List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 1 ).collect(Collectors.toList());
+//        Iterator<Post> iterator = set.iterator();
+//        while (iterator.hasNext())
+//            System.out.println(iterator.next());
+////        for(Post p : posts) {
+////            System.out.println(p.toString());
+////        }
+//        set.forEach(System.out::println);
 //    }
 
 }

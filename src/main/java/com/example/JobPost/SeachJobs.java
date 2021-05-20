@@ -45,32 +45,50 @@ public class SeachJobs extends HttpServlet {
     private void searchUser(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
         String sortBy = request.getParameter("sortbydate");
-        String userid = request.getParameter("userid");
+        String category = request.getParameter("category");
+        int categoryID = 0;
+        if(category != null) {
+            categoryID = toInt(category);
+        }
+        String type = request.getParameter("job_type");
+        int typeID = 0;
+        if(type != null) {
+            typeID = toInt(type);
+        }
+        String location = request.getParameter("location");
 
-        int id = 0;
-        if(userid != null || !userid.isEmpty()) {
-            id = toInt(userid);
+        if(sortBy != null) {
+            if (sortBy.equals("date_posted")) {
+                request.getRequestDispatcher("/WEB-INF/view/user/job_listing.jsp").forward(request, response);
+                return;
+            }
+
+            if (sortBy.equals("expiration_date")) {
+                posts = dao.displayJobPosts();
+                Collections.sort(posts, new Comparator<Post>() {
+                    @Override
+                    public int compare(Post o1, Post o2) {
+                        return o2.getExpires().compareTo(o1.getExpires());
+                    }
+                });
+
+                request.getSession().setAttribute("posts", posts);
+                request.getRequestDispatcher("/WEB-INF/view/user/job_listing.jsp?sortby=" + sortBy).forward(request, response);
+                return;
+            }
         }
 
-        System.out.println(id);
-        if (sortBy.equals("date_posted")) {
-            request.getRequestDispatcher("/WEB-INF/view/user/job_listing.jsp").forward(request, response);
-            return;
-        }
-
-        if(sortBy.equals("expiration_date")) {
+        if(categoryID != 0 || typeID != 0 || location != null) {
             posts = dao.displayJobPosts();
-            Collections.sort(posts, new Comparator<Post>()
-            {
-                @Override
-                public int compare(Post o1, Post o2) {
-                    return o2.getExpires().compareTo(o1.getExpires());
-                }
-            });
-
-            request.setAttribute("posts", posts);
-            request.getRequestDispatcher("/WEB-INF/view/user/job_listing.jsp?sortby="+sortBy).forward(request, response);
-            return;
+            int finalCategoryID = categoryID;
+            int finalTypeID = typeID;
+            Set<Post> set = posts.stream().filter(post -> post.getJobCategory() == finalCategoryID && post.getJobTypeID()
+                    == finalTypeID && post.getLocation().equals(location)).collect(Collectors.toSet());
+            for (Post p : set)
+                System.out.println(p.toString());
+            request.getSession().setAttribute("set", set);
+            response.sendRedirect("/WEB-INF/view/user/job_listing.jsp?categoryid="+categoryID+"&typeid="+typeID+
+                    "&location=" +location);
         }
 
     }
@@ -106,7 +124,7 @@ public class SeachJobs extends HttpServlet {
                     }
                 });
 
-                request.setAttribute("posts", posts);
+                request.getSession().setAttribute("posts", posts);
                 response.sendRedirect("job_listing.jsp?sortby="+sortBy);
                 return;
             }
@@ -120,7 +138,7 @@ public class SeachJobs extends HttpServlet {
                     == finalTypeID && post.getLocation().equals(location)).collect(Collectors.toSet());
                 for (Post p : set)
                     System.out.println(p.toString());
-                request.setAttribute("set", set);
+                request.getSession().setAttribute("set", set);
                 response.sendRedirect("job_listing.jsp?categoryid="+categoryID+"&typeid="+typeID+"&location="
                         +location);
         }

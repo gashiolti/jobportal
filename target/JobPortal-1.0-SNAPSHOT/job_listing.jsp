@@ -226,7 +226,7 @@
                                     if(url.contains("expiration_date")) {
                                 %>
                                 <c:forEach items="${posts}" var="post">
-                                <div class="single-job-items mb-30" style="border: 1px solid #525050;">
+                                <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
@@ -259,7 +259,7 @@
                                         List<Post> postList = dao.displayJobPosts();
                                         for (Post p : postList) {
                                 %>
-                                <div class="single-job-items mb-30">
+                                <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=<%=p.getId()%>">
@@ -291,7 +291,7 @@
                                                 url.contains("location")) {
                                 %>
                                 <c:forEach items="${set}" var="post">
-                                    <div class="single-job-items mb-30" style="border: 1px solid #525050;">
+                                    <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
                                         <div class="job-items">
                                             <div class="company-img">
                                                 <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
@@ -324,7 +324,7 @@
                                         List<Post> postList = dao.displayJobPosts();
                                         for (Post p : postList) {
                                 %>
-                                <div class="single-job-items mb-30">
+                                <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
                                     <div class="job-items">
                                         <div class="company-img">
                                             <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=<%=p.getId()%>">
