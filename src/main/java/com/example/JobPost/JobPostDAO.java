@@ -740,18 +740,12 @@ public class JobPostDAO {
         return total;
     }
 
-    public static void main(String[] args) throws SQLException {
-
-        JobPostDAO dao = new JobPostDAO();
-        List<Post> posts = dao.displayJobPosts();
-        List<Post> postList = dao.displayJobPosts();
-        List<Post> temp = new ArrayList<Post>();
-        int i = 0;
-        while(i < 3) {
-            temp.add(postList.get(i));
-            i++;
-        }
-        temp.forEach(System.out::println);
-    }
+//    public static void main(String[] args) throws SQLException {
+//
+//        JobPostDAO dao = new JobPostDAO();
+//        List<Post> posts = dao.displayJobPosts();
+//        List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 1).collect(Collectors.toList());
+//        set.forEach(System.out::println);
+//    }
 
 }

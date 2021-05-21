@@ -141,7 +141,21 @@ public class SeachJobs extends HttpServlet {
             int total = set.size();
             request.getSession().setAttribute("size", total);
             response.sendRedirect("job_listing.jsp?categoryid="+categoryID+"&typeid="+typeID+"&location="
-                        +location);
+                    +location);
+            return;
+        }
+
+        if(categoryID != 0) {
+            posts = dao.displayJobPosts();
+            int finalCategoryID1 = categoryID;
+            System.out.println("finalCategoryID1: "+categoryID);
+            List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 1).collect(Collectors.toList());
+            request.setAttribute("set", set);
+            int total = set.size();
+            request.setAttribute("size", total);
+//            response.sendRedirect("job_listing.jsp?category="+finalCategoryID1+"&usertype=client");
+            response.sendRedirect("login.jsp");
+            return;
         }
     }
 

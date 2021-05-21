@@ -320,6 +320,38 @@
                                     </div>
                                 </c:forEach>
                                 <%
+                                    } else if (url.contains("category") && url.contains("usertype")) {
+                                %>
+                                <c:forEach items="${category}" var="post">
+                                    <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
+                                        <div class="job-items">
+                                            <div class="company-img">
+                                                <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
+                                                    <img src="imageServlet?postid=${post.getId()}" alt="logo" width="90"
+                                                         height="90">
+                                                </a>
+                                            </div>
+                                            <div class="job-tittle job-tittle2">
+                                                <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid=${post.getId()}">
+                                                    <h4>${post.getTitle()}</h4>
+                                                    <input type="hidden" name="postid" value="${post.getId()}">
+                                                </a>
+                                                <ul>
+                                                    <li>${post.getCompanyName()}</li>
+                                                    <li><i class="fas fa-map-marker-alt"></i>${post.getLocation()}</li>
+                                                    <li><i class="fas fa-euro-sign"></i>${post.getSalary()}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="items-link items-link2 f-right">
+                                            <a href="${pageContext.request.contextPath}/dispatch?page=postdetails&postid
+                                        =${post.getId()}">${post.getJobType()}</a>
+                                            <span>${post.getPosted()}</span>
+                                            <span>${post.getExpires()}</span>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                                <%
                                     } else {
                                         List<Post> postList = dao.displayJobPosts();
                                         for (Post p : postList) {

@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.JobPost.JobPostDAO" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.stream.Collectors" %>
 <jsp:include page="header.jsp" />
 
 <body>
@@ -65,6 +66,7 @@
         </div>
         <!-- slider Area End-->
         <!-- Our Services Start -->
+        <!-- Our Services Start -->
         <div class="our-services section-pad-t30">
             <div class="container">
                 <!-- Section Tittle -->
@@ -76,6 +78,10 @@
                         </div>
                     </div>
                 </div>
+                <%
+                    JobPostDAO dao = new JobPostDAO();
+                    List<Post> postList = dao.displayJobPosts();
+                %>
                 <div class="row d-flex justify-contnet-center">
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="single-services text-center mb-30">
@@ -83,8 +89,14 @@
                                 <span class="flaticon-tour"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Design & Creative</a></h5>
-                                <span>(653)</span>
+                                <%
+                                    List<Post> postList1 = postList.stream().filter(post -> post.getJobCategory() == 6)
+                                            .collect(Collectors.toList());
+                                    int total = postList1.size();
+                                %>
+                                <%--                               <h5><a href="search?category=6&usertype=client">Design & Creative</a></h5>--%>
+                                <h5><a href="#">Design & Creative</a></h5>
+                                <span>(<%=total%>)</span>
                             </div>
                         </div>
                     </div>
@@ -94,8 +106,13 @@
                                 <span class="flaticon-cms"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Design & Development</a></h5>
-                                <span>(658)</span>
+                                <%
+                                    List<Post> postList2 = postList.stream().filter(post -> post.getJobCategory() == 1)
+                                            .collect(Collectors.toList());
+                                    int total2 = postList2.size();
+                                %>
+                                <h5><a href="search?category=1&usertype=user">Design & Development</a></h5>
+                                <span>(<%=total2%>)</span>
                             </div>
                         </div>
                     </div>
@@ -105,8 +122,14 @@
                                 <span class="flaticon-report"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Sales & Marketing</a></h5>
-                                <span>(658)</span>
+                                <%
+                                    List<Post> postList3 = postList.stream().filter(post -> post.getJobCategory() == 8)
+                                            .collect(Collectors.toList());
+                                    int total3 = postList3.size();
+                                %>
+                                <%--                               <h5><a href="search?category=8&usertype=client">Sales & Marketing</a></h5>--%>
+                                <h5><a href="#">Sales & Marketing</a></h5>
+                                <span>(<%=total3%>)</span>
                             </div>
                         </div>
                     </div>
@@ -116,8 +139,8 @@
                                 <span class="flaticon-app"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Mobile Application</a></h5>
-                                <span>(658)</span>
+                                <h5><a href="search?category=1&usertype=user">Mobile Application</a></h5>
+                                <span>(<%=total2%>)</span>
                             </div>
                         </div>
                     </div>
@@ -127,8 +150,14 @@
                                 <span class="flaticon-helmet"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Construction</a></h5>
-                                <span>(658)</span>
+                                <%
+                                    List<Post> postList4 = postList.stream().filter(post -> post.getJobCategory() == 64)
+                                            .collect(Collectors.toList());
+                                    int total4 = postList4.size();
+                                %>
+                                <%--                               <h5><a href="search?category=64&usertype=client">Construction</a></h5>--%>
+                                <h5><a href="#">Construction</a></h5>
+                                <span>(<%=total4%>)</span>
                             </div>
                         </div>
                     </div>
@@ -138,8 +167,8 @@
                                 <span class="flaticon-high-tech"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Information Technology</a></h5>
-                                <span>(658)</span>
+                                <h5><a href="search?category=1&usertype=user">Information Technology</a></h5>
+                                <span>(<%=total2%>)</span>
                             </div>
                         </div>
                     </div>
@@ -149,8 +178,14 @@
                                 <span class="flaticon-real-estate"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Real Estate</a></h5>
-                                <span>(658)</span>
+                                <%
+                                    List<Post> postList5 = postList.stream().filter(post -> post.getJobCategory() == 84)
+                                            .collect(Collectors.toList());
+                                    int total5 = postList5.size();
+                                %>
+                                <%--                               <h5><a href="search?category=84&usertype=client">Real Estate</a></h5>--%>
+                                <h5><a href="#">Real Estate</a></h5>
+                                <span>(<%=total5%>)</span>
                             </div>
                         </div>
                     </div>
@@ -160,8 +195,14 @@
                                 <span class="flaticon-content"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Content Writer</a></h5>
-                                <span>(658)</span>
+                                <%
+                                    List<Post> postList6 = postList.stream().filter(post -> post.getJobCategory() == 74)
+                                            .collect(Collectors.toList());
+                                    int total6 = postList6.size();
+                                %>
+                                <%--                               <h5><a href="search?category=74&usertype=client">Content Writer</a></h5>--%>
+                                <h5><a href="#">Content Writer</a></h5>
+                                <span>(<%=total6%>)</span>
                             </div>
                         </div>
                     </div>
@@ -171,7 +212,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="browse-btn2 text-center mt-50">
-                            <a href="job_listing.html" class="border-btn2">Browse All Sectors</a>
+                            <a href="job_listing.jsp" class="border-btn2">Browse All Sectors</a>
                         </div>
                     </div>
                 </div>
@@ -195,8 +236,6 @@
                     <div class="col-xl-10">
                         <!-- single-job-content -->
                         <%
-                            JobPostDAO dao = new JobPostDAO();
-                            List<Post> postList = dao.displayJobPosts();
                             List<Post> temp = new ArrayList<Post>();
                             int i = 0;
                             while (i < 5) {
