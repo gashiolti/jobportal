@@ -52,7 +52,7 @@ public class SearchJobsByCategory extends HttpServlet {
             posts = dao.displayJobPosts();
             int finalCategoryID1 = categoryID;
             System.out.println("finalCategoryID1: "+categoryID);
-            List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 1).collect(Collectors.toList());
+            List<Post> set = posts.stream().filter(post -> post.getJobCategory() == finalCategoryID1).collect(Collectors.toList());
             request.getSession().setAttribute("category", set);
             int total = set.size();
             request.getSession().setAttribute("size", total);
@@ -73,12 +73,12 @@ public class SearchJobsByCategory extends HttpServlet {
             posts = dao.displayJobPosts();
             int finalCategoryID1 = categoryID;
             System.out.println("finalCategoryID1: "+categoryID);
-            List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 1).collect(Collectors.toList());
+            List<Post> set = posts.stream().filter(post -> post.getJobCategory() == finalCategoryID1).collect(Collectors.toList());
             request.getSession().setAttribute("set", set);
             int total = set.size();
             request.getSession().setAttribute("size", total);
             request.getRequestDispatcher("/WEB-INF/view/user/job_listing.jsp?category="+finalCategoryID1+"&usertype" +
-                    "=client").forward(request, response);
+                    "=user").forward(request, response);
             return;
         }
 

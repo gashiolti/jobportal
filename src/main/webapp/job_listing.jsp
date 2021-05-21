@@ -4,6 +4,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.JobPost.JobCategory" %>
 <%@ page import="com.example.JobPost.JobType" %>
+<%@ page import="java.util.Comparator" %>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -201,7 +202,22 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="count-job mb-35">
+                                            <%
+                                                String query = request.getQueryString();
+                                                String url = request.getRequestURL() + query;
+                                                if(url.contains("sortby") || url.contains("categoryid") ||
+                                                        url.contains("category")) {
+                                            %>
                                             <span>${size} Jobs found</span>
+                                            <%
+                                                } else {
+                                                    List<Post> posts = dao.displayJobPosts();
+                                                    int size = posts.size();
+                                            %>
+                                            <span><%=size%> Jobs found</span>
+                                            <%
+                                                }
+                                            %>
                                             <!-- Select job items start -->
                                             <div class="select-job-items">
                                                 <span>Sort by</span>
@@ -220,9 +236,6 @@
                                 <!-- Count of Job list End -->
                                 <!-- single-job-content -->
                                 <%
-                                    String query = request.getQueryString();
-                                    String url = request.getRequestURL() + query;
-
                                     if(url.contains("expiration_date")) {
                                 %>
                                 <c:forEach items="${posts}" var="post">
@@ -354,6 +367,7 @@
                                 <%
                                     } else {
                                         List<Post> postList = dao.displayJobPosts();
+                                        postList.sort(Comparator.comparing(Post::getId).reversed());
                                         for (Post p : postList) {
                                 %>
                                 <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">

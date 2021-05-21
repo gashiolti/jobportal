@@ -139,7 +139,22 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="count-job mb-35">
+                                            <%
+                                                String query = request.getQueryString();
+                                                String url = request.getRequestURL() + query;
+                                                if(url.contains("sortby") || url.contains("categoryid") ||
+                                                        url.contains("category")) {
+                                            %>
                                             <span>${size} Jobs found</span>
+                                            <%
+                                            } else {
+                                                List<Post> posts = dao.displayJobPosts();
+                                                int size = posts.size();
+                                            %>
+                                            <span><%=size%> Jobs found</span>
+                                            <%
+                                                }
+                                            %>
                                             <!-- Select job items start -->
                                             <div class="select-job-items">
                                                 <span>Sort by</span>
@@ -158,9 +173,6 @@
                                 <!-- Count of Job list End -->
                                 <!-- single-job-content -->
                                 <%
-                                    String query = request.getQueryString();
-                                    String url = request.getRequestURL() + query;
-
                                     if(url.contains("expiration_date")) {
                                 %>
                                 <c:forEach items="${posts}" var="post">

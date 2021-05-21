@@ -3,10 +3,7 @@ package com.example.JobPost;
 import java.io.InputStream;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class JobPostDAO {
@@ -740,12 +737,20 @@ public class JobPostDAO {
         return total;
     }
 
-//    public static void main(String[] args) throws SQLException {
-//
-//        JobPostDAO dao = new JobPostDAO();
-//        List<Post> posts = dao.displayJobPosts();
-//        List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 1).collect(Collectors.toList());
-//        set.forEach(System.out::println);
-//    }
+    public static void main(String[] args) throws SQLException {
+
+        JobPostDAO dao = new JobPostDAO();
+        List<Post> posts = dao.displayJobPosts();
+        List<Post> set = posts.stream().filter(post -> post.getJobCategory() == 8).collect(Collectors.toList());
+//        Collections.sort(posts, new Comparator<Post>() {
+//            @Override
+//            public int compare(Post o1, Post o2) {
+//                return o1.getId() > o2.getId();
+//            }
+//        });
+
+        posts.sort(Comparator.comparing(Post::getId));
+        posts.forEach(System.out::println);
+    }
 
 }

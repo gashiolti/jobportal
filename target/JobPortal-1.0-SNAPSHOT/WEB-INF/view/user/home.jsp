@@ -3,6 +3,7 @@
 <%@ page import="com.example.JobPost.JobPostDAO" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.stream.Collectors" %>
+<%@ page import="java.util.Comparator" %>
 <jsp:include page="header.jsp" />
 
 <body>
@@ -94,8 +95,7 @@
                                             .collect(Collectors.toList());
                                     int total = postList1.size();
                                 %>
-                                <%--                               <h5><a href="search?category=6&usertype=client">Design & Creative</a></h5>--%>
-                                <h5><a href="#">Design & Creative</a></h5>
+                                <h5><a href="search?category=6&usertype=client">Design & Architecture</a></h5>
                                 <span>(<%=total%>)</span>
                             </div>
                         </div>
@@ -127,8 +127,7 @@
                                             .collect(Collectors.toList());
                                     int total3 = postList3.size();
                                 %>
-                                <%--                               <h5><a href="search?category=8&usertype=client">Sales & Marketing</a></h5>--%>
-                                <h5><a href="#">Sales & Marketing</a></h5>
+                                <h5><a href="search?category=8&usertype=user">Sales & Marketing</a></h5>
                                 <span>(<%=total3%>)</span>
                             </div>
                         </div>
@@ -155,8 +154,7 @@
                                             .collect(Collectors.toList());
                                     int total4 = postList4.size();
                                 %>
-                                <%--                               <h5><a href="search?category=64&usertype=client">Construction</a></h5>--%>
-                                <h5><a href="#">Construction</a></h5>
+                                <h5><a href="search?category=64&usertype=user">Construction</a></h5>
                                 <span>(<%=total4%>)</span>
                             </div>
                         </div>
@@ -183,8 +181,7 @@
                                             .collect(Collectors.toList());
                                     int total5 = postList5.size();
                                 %>
-                                <%--                               <h5><a href="search?category=84&usertype=client">Real Estate</a></h5>--%>
-                                <h5><a href="#">Real Estate</a></h5>
+                                <h5><a href="search?category=84&usertype=client">Real Estate</a></h5>
                                 <span>(<%=total5%>)</span>
                             </div>
                         </div>
@@ -200,8 +197,7 @@
                                             .collect(Collectors.toList());
                                     int total6 = postList6.size();
                                 %>
-                                <%--                               <h5><a href="search?category=74&usertype=client">Content Writer</a></h5>--%>
-                                <h5><a href="#">Content Writer</a></h5>
+                                <h5><a href="search?category=74&usertype=client">Content Writer</a></h5>
                                 <span>(<%=total6%>)</span>
                             </div>
                         </div>
@@ -237,6 +233,7 @@
                         <!-- single-job-content -->
                         <%
                             List<Post> temp = new ArrayList<Post>();
+                            postList.sort(Comparator.comparing(Post::getId).reversed());
                             int i = 0;
                             while (i < 5) {
                                 temp.add(postList.get(i));

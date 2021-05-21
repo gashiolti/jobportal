@@ -133,11 +133,10 @@ public class CompanySignup extends HttpServlet {
 
     public boolean invalidWebURL(String webURL) {
         try {
-            URL url = new URL(webURL);
-            URLConnection connection = url.openConnection();
-            connection.connect();
+            if (webURL.contains("https://") || webURL.contains("http://"))
+                return true;
         }
-        catch (IOException e) {
+        catch (Exception e) {
             return false;
         }
         return true;
