@@ -4,6 +4,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.JobPost.JobCategory" %>
 <%@ page import="com.example.JobPost.JobType" %>
+<%@ page import="java.util.Comparator" %>
 
 <jsp:include page="header.jsp" />
 
@@ -272,6 +273,7 @@
                                 <%
                                 } else {
                                     List<Post> postList = dao.displayJobPosts();
+                                    postList.sort(Comparator.comparing(Post::getId).reversed());
                                     for (Post p : postList) {
                                 %>
                                 <div class="single-job-items mb-30" style="border: 1px solid #e8e8e8;">
