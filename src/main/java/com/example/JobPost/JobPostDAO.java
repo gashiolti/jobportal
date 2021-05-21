@@ -744,15 +744,14 @@ public class JobPostDAO {
 
         JobPostDAO dao = new JobPostDAO();
         List<Post> posts = dao.displayJobPosts();
-        List<Post> set = posts.stream().filter(post -> post.getJobTypeID() == 1 && post.getJobCategory() == 1
-                        && post.getLocation().contains("Kosovo")).collect(Collectors.toList());
-//        List<Post> temp = new ArrayList<Post>();
-//        for(Post p : posts) {
-//            if(p.getJobType().equals("Full Time")) {
-//                temp.add(p);
-//            }
-//        }
-        set.forEach(System.out::println);
+        List<Post> postList = dao.displayJobPosts();
+        List<Post> temp = new ArrayList<Post>();
+        int i = 0;
+        while(i < 3) {
+            temp.add(postList.get(i));
+            i++;
+        }
+        temp.forEach(System.out::println);
     }
 
 }
